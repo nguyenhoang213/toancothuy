@@ -25,17 +25,26 @@
     }
 </style>
 
+
 <button class="menu">Menu</button>
 <div class="sidenav">
-    <button class="dropdown-btn home"><i class="fa-solid fa-house"></i> Home <i
-            class="nav-arrow-down ti-angle-down"></i></button>
+    <div class="dropdown-admin ">
+        <h2>ADMIN</h2>
+    </div>
+
+    <button class="dropdown-btn ">
+        <div class="dropItem"><i class="fa-solid fa-house"></i> Home </div>
+        <i class="nav-arrow-down ti-angle-down"></i>
+    </button>
     <div class="dropdown-container">
         <a href="../admin/admin.php">Admin</a>
         <a href="../index.php">Trang Chủ</a>
     </div>
 
-    <button class="dropdown-btn"><i class="fa-solid fa-chart-simple"></i> Thống Kê <i
-            class="nav-arrow-down ti-angle-down"></i></button>
+    <button class="dropdown-btn">
+        <div class="dropItem"><i class="fa-solid fa-chart-simple"></i> Thống Kê</div>
+        <i class="nav-arrow-down ti-angle-down"></i>
+    </button>
     <div class="dropdown-container">
         <form method="GET" action="../admin/admin_statistical.php">
             <?php
@@ -49,8 +58,10 @@
         </form>
     </div>
 
-    <button class="dropdown-btn"><i class="fa-solid fa-pen"></i> Quản lý Điểm <i
-            class="nav-arrow-down ti-angle-down"></i></button>
+    <button class="dropdown-btn">
+        <div class="dropItem"> <i class="fa-solid fa-pen"></i> Quản lý Điểm </div>
+        <i class="nav-arrow-down ti-angle-down"></i>
+    </button>
     <div class="dropdown-container">
         <form method="GET" action="../lesson/lesson_list.php">
             <?php
@@ -64,8 +75,10 @@
         </form>
     </div>
 
-    <button class="dropdown-btn"><i class="fa-solid fa-user"></i> Quản lý học sinh <i
-            class="nav-arrow-down ti-angle-down"></i></button>
+    <button class="dropdown-btn">
+        <div class="dropItem"><i class="fa-solid fa-user"></i> Quản lý học sinh </div>
+        <i class="nav-arrow-down ti-angle-down"></i>
+    </button>
     <div class="dropdown-container">
         <form method="GET" action="../student/student_list.php">
             <?php
@@ -79,15 +92,18 @@
         </form>
     </div>
 
-    <a class="a_navigator" href="../class/class_list.php"><button class="dropdown-btn"><i
-                class="fa-solid fa-user-group"></i> Quản lý lớp
+    <a class="a_navigator" href="../class/class_list.php">
+        <button class="dropdown-btn">
+            <div class="dropItem"> <i class="fa-solid fa-user-group"></i> Quản lý lớp</div>
         </button>
         <div class="dropdown-container">
         </div>
     </a>
 
-    <button class="dropdown-btn"><i class="fa-solid fa-house-circle-check"></i> Quản lý BTVN <i
-            class="nav-arrow-down ti-angle-down"></i></button>
+    <button class="dropdown-btn">
+        <div class="dropItem"><i class="fa-solid fa-house-circle-check"></i> Quản lý BTVN </div>
+        <i class="nav-arrow-down ti-angle-down"></i>
+    </button>
     <div class="dropdown-container">
         <form method="GET" action="../homework/homework.php">
             <?php
@@ -100,8 +116,10 @@
             } ?>
         </form>
     </div>
-    <button class="dropdown-btn"><i class="fa-solid fa-ranking-star"></i> Xếp Hạng <i
-            class="nav-arrow-down ti-angle-down"></i></button>
+    <button class="dropdown-btn">
+        <div class="dropItem"><i class="fa-solid fa-ranking-star"></i> Xếp Hạng </div>
+        <i class="nav-arrow-down ti-angle-down"></i>
+    </button>
     <div class="dropdown-container">
         <form method="GET" action="../admin/admin_ranking.php">
             <?php
@@ -115,8 +133,10 @@
         </form>
     </div>
 
-    <button class="dropdown-btn"><i class="fa-solid fa-chart-line"></i> Hoạt động <i
-            class="nav-arrow-down ti-angle-down"></i></button>
+    <button class="dropdown-btn">
+        <div class="dropItem"> <i class="fa-solid fa-chart-line"></i> Hoạt động </div>
+        <i class="nav-arrow-down ti-angle-down"></i>
+    </button>
     <div class="dropdown-container">
         <form method="GET" action="../student/student_activity.php">
             <?php
@@ -130,8 +150,11 @@
         </form>
     </div>
 
-    <button class="dropdown-btn"><i class="fa-solid fa-right-from-bracket"></i> <a href="../logout.php">Đăng
-            xuất</a></button>
+    <button class="dropdown-btn">
+        <div class="dropItem"> <i class="fa-solid fa-right-from-bracket"></i> <a style="color: #FFFFFF80;"
+                href="../logout.php">Đăng xuất</a>
+        </div>
+    </button>
     <div class="dropdown-container">
     </div>
 
@@ -156,5 +179,25 @@
             sidenav.style.display = sidenav.style.display === "block" ? "none" : "block";
         });
     }
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+    for (let i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var dropdownContent = this.nextElementSibling;
+
+            if (dropdownContent.style.maxHeight) {
+                // Nếu dropdown đã mở, ẩn nó mượt mà
+                dropdownContent.style.maxHeight = dropdownContent.scrollHeight + "px";
+            } else {
+                // Nếu dropdown đang đóng, mở nó mượt mà
+                dropdownContent.style.maxHeight = dropdownContent.scrollHeight + "px";
+            }
+        });
+    }
+    const dropItem = document.getElementById('dropItem');
+
+    dropItem.addEventListener('click', function () {
+        dropItem.classList.toggle('clicked');
+    });
 </script>
 <!-- End: Side-navigation -->

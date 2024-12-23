@@ -16,68 +16,95 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color:#f1f1f1;
+    background-color:#3A4651;
     overflow-x: hidden;
-    box-shadow: 10px 10px 50px 5px grey;
+
 }
   
 /* Style the sidenav links and the dropdown button */
 .dropdown-container button, .dropdown-btn {
-    padding: 20px 8px 20px 16px;
+    padding: 15px 15px 15px 20px;
     text-decoration: none;
-    font-size: 18px;
-    color: black;
+    font-size: 14px;
+    color: #FFFFFF80;
     display: block;
     border: none;
-    background: none;
+    background: #3A4651;
     width: 100%;
     text-align: left;
     cursor: pointer;
     outline: none;
     font-family: 'Montserrat';
+
 }
 
 .dropdown-container a, .dropdown-btn {
-    padding: 20px 8px 20px 16px;
+    padding: 15px 15px 15px 20px;
     text-decoration: none;
-    font-size: 18px;
-    color: black;
+    font-size: 14px;
+    color: #FFFFFF80;
     display: block;
     border: none;
-    background: none;
+    background: #3A4651;
     width: 100%;
     text-align: left;
     cursor: pointer;
     outline: none;
     font-family: 'Montserrat';
+    
+}
+.dropdown-container a{
+    padding: 15px 15px 15px 40px;
+}
+.dropdown-container a:hover{
+    background-color: #2d363f;
+    color: #FFFFFF;
+}
+.dropdown-btn {
+    display: flex;
+    justify-content: space-between;
+}
+.dropItem{
+    display: flex;
+    gap: 15px;
+}
+.dropdown-admin{
+    padding: 15px 15px 15px 15px;
+    background-color: #4BCF99;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.dropdown-container a, .dropdown-btn:active {
+    background-color: #2d363f;
+}
+.dropdown-container button, .dropdown-btn:active {
+    background-color: #2d363f;
 }
 
 
-/* Add an active class to the active dropdown button */
-.active {
-    background-color: #555;
-    color: rgb(255, 255, 255);
-}
-  
 /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
 .dropdown-container {
     display: none;
     background-color: #dfdfdf;;
     padding: -20px 0px; 
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
 }
 
-.dropdown-container button{
-    padding-left: 20px;
+.dropdown-container a{
+    padding: 15px 15px 15px 60px;
 }
 
 .sidenav button:hover {
-    background-color: #878787;
-    color: white;
+    background-color: #2d363f;
+    color: #FFFFFF;
 }
 
 .sidenav button:hover a{
-    background-color: #878787;
-    color: white;
+    background-color: #2d363f;
+    color: #FFFFFF;
 }
   
 /* Optional: Style the caret down icon */
@@ -86,19 +113,12 @@
     padding-right: 8px;
 }
 
-.sidenav .home.active {
-    background-color: #000000;
-    color: white;
-}
+
 
 .ti-angle-down {
     font-size: 14px;
 }
 
-.home{
-    background-color: #000000;
-    color: white;
-}
 
 
 @media screen and (max-width: 600px) {

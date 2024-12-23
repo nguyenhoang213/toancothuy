@@ -2,7 +2,11 @@
 include("../connection.php");
 session_start();
 if (!$_SESSION['uname'])
-    header('Location: /login.php');
+    echo '
+    <script>
+        window.location.href="../login.php";
+    </script>';
+
 include("../side_nav.php");
 
 if (isset($_GET['id'])) {

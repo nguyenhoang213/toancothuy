@@ -3,10 +3,11 @@ include("../connection.php"); // Kết nối CSDL
 session_start();
 
 // Kiểm tra xem người dùng đã đăng nhập chưa
-if (!$_SESSION['uname']) {
-    header('Location: https://vatlytruongnghiem.edu.vn/');
-    exit;
-}
+if (!$_SESSION['uname'])
+    echo '
+    <script>
+        window.location.href="../index.php";
+    </script>';
 
 include("../side_nav.php"); // Thanh điều hướng
 

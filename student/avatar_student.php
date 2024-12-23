@@ -3,10 +3,11 @@ include("../connection.php");
 session_start();
 include("../side_nav.php");
 
-if (!$_SESSION['uname']) {
-    header('Location: https://vatlytruongnghiem.edu.vn/');
-    exit;
-}
+if (!$_SESSION['uname'])
+    echo '
+    <script>
+        window.location.href="../index.php";
+    </script>';
 
 if (isset($_GET['id'])) {
     $maLop = $_GET['id'];

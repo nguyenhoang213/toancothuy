@@ -6,6 +6,7 @@ if (!$_SESSION['uname'])
     <script>
         window.location.href="../login.php";
     </script>';
+
 include("../side_nav.php");
 
 ?>

@@ -4,7 +4,10 @@ session_start();
 
 // Kiểm tra xem người dùng đã đăng nhập chưa
 if (!$_SESSION['uname'])
-    header('Location: https://vatlytruongnghiem.edu.vn/');
+    echo '
+    <script>
+        window.location.href="../index.php";
+    </script>';
 
 include("../side_nav.php"); // Thanh điều hướng
 

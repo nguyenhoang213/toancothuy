@@ -1,0 +1,32 @@
+.guide {
+    margin-left: 50px;
+}
+
+.input-score {
+    margin-left: 50px;
+    font-size: 22px;
+}
+
+.input-score input{
+    font-size: 16px;
+}
+
+#button {
+    margin-top: 10px;
+}
+
+table, th, td {
+    border: 1.5px solid black;
+    border-collapse: collapse;  
+    text-align: center;
+    font-size: 25px;
+}
+
+tr {
+    text-align: center;
+}
+
+table, th, td {
+    border: 1px solid rgb(0, 0, 0);
+    border-collapse: collapse;
+}

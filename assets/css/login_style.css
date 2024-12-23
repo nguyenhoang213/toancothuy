@@ -1,0 +1,76 @@
+#content {
+  padding-top: 50px;
+  background: linear-gradient(
+      rgba(139, 183, 246, 0.6),
+      rgba(141, 212, 208, 0.6)
+    ),
+    url(../image/banner.png), no-repeat center center;
+  background-size: contain;
+}
+
+#content .login {
+  position: relative;
+  text-align: left;
+  width: 40vw;
+  left: 50%;
+  transform: translate(-50%, 0);
+  padding: 40px 0 80px 0;
+  margin-top: 50px;
+  margin-bottom: 200px;
+  background-color: white;
+  background: linear-gradient(rgba(132, 143, 159, 0.6), rgba(94, 219, 212, 0.6)),
+    url(../image/bg-login.jpg!d), no-repeat center center;
+}
+
+#content .login h1 {
+  margin-top: 5px;
+  text-align: left;
+  margin: 0 50px 20px;
+}
+
+#content .login .text-input {
+  height: 40px;
+  padding: 5px 66px;
+  width: 24vw;
+  font-size: 14px;
+  border-color: #000;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid;
+  margin: 1px 50px 20px 50px;
+}
+
+#content .login input:focus-visible {
+  outline: none;
+}
+
+#content .login .checkbox {
+  margin: 0 10px 20px 50px;
+}
+
+#content .button-list {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+#content .login .button-list button {
+  margin: 0;
+  width: 50%;
+  float: left;
+  height: 60px;
+  font-size: 16px;
+  border: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  #content {
+    background: none;
+  }
+  #content .login {
+    width: 95vw;
+  }
+  #content .login .text-input {
+    width: 60vw;
+  }
+}

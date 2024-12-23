@@ -1,0 +1,123 @@
+.ti-angle-down{
+    margin-right: 5px;
+    font-size: 15px;
+}
+
+@media screen and (min-width: 600px) {
+    .content #Title {
+        font-size: 40px;
+        text-align: left;;
+    }
+    
+    .chart-bar {
+        margin-left: 10px;
+        width: 55vw;
+        box-shadow: 10px 10px 8px 10px #888888;
+        margin-bottom: 50px;
+        height: 450px;
+    }
+    
+    .statistics-bar {
+        display: block;
+        box-shadow: 10px 10px 8px 10px #888888;
+        display: inline-block;
+        float: left;
+        margin-left: 50px;
+        width: 400px;
+        padding: 30px 0 0 40px;
+        font-size: 22px;
+        color: rgb(0, 0, 0);
+        height: 450px;
+        box-sizing: border-box;    
+    }
+    
+    #name {
+        margin-bottom: -20px;
+    }
+
+    .statistics-bar p {
+        font-size: 24px;
+        margin: 15px 0px;
+    }
+
+    .chart-barjs{
+        display: flex;
+        margin-top: 40px;
+    }
+    
+    .student-list {
+        width: 95%;
+    }
+    
+    table, th, td {
+        border: 1.5px solid black;
+        border-collapse: collapse;  
+        text-align: center;
+        font-size: 22px;
+    }
+    
+    tr {
+        text-align: center;
+    }
+    
+    table, th, td {
+        border: 1px solid rgb(0, 0, 0);
+        border-collapse: collapse;
+    }
+    .student-list button {
+        font-family: 'Montserrat';
+        background-color: inherit;
+        border: none;
+        font-size: 22px;
+    }
+    .hoten {
+        text-align:left;padding-left: 30px
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #Title,h2 {
+        font-size: 20px !important;
+    }
+    table, th, td {
+        border: 1.5px solid black;
+        border-collapse: collapse;  
+        text-align: center;
+        font-size: 8px;
+    }
+    .student-list button {
+        font-family: 'Montserrat';
+        background-color: inherit;
+        border: none;
+        font-size: 10px;
+    }
+    .student-list {
+        width: 100vw;
+    }
+    .chart-bar {
+        width: 100vw;
+        height: auto;
+        height: 40vh;
+    }
+    .statistics-bar p {
+        font-size: 16px;
+        margin: 8px 0px;
+    }
+}
+
+#not-fix {
+    display: none;
+}
+
+#fix{
+    display: inline-table;
+}
+
+.show {
+    display: inline-table !important;
+}
+
+.hide {
+    display: none !important;
+    
+}

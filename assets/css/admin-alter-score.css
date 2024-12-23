@@ -1,0 +1,39 @@
+table  tr,td{
+    border-collapse: collapse;
+    border: 1px solid;
+    font-family: 'Montserrat';
+}
+
+table input{
+    border: none;
+    font-size: 18px;
+    width: 150px;
+}
+
+table {
+    margin-left: 20px;
+}
+
+table button {
+    background: inherit;
+    border: none;
+    color: blue;
+}
+
+.info{
+    font-size: 24px;
+    margin-left:20px ;
+}
+
+.form label {
+    font-size: 24px;
+    margin-left:20px ;
+}
+
+.form input {
+    font-size: 20px;
+}
+
+.form button{
+    font-size: 20px;
+}

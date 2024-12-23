@@ -1,0 +1,101 @@
+#content {
+    margin-top: 300px;
+    text-align: center;
+}
+
+.content #Title {
+    font-size: 40px;
+    text-align: left;;
+}
+
+@media screen and (min-width: 600px) {
+    .statistical div {
+        background-color: rgb(57 132 191);
+        width: 22vw;
+        color: rgb(255, 255, 255);
+        padding: 40px 0px 40px 0;
+        border-radius: 10px;
+        box-shadow: 10px 10px 30px 5px grey;
+    }
+    .statistical {
+        padding: 50px 0px;
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+        font-size: 24px;
+        box-shadow: 10px 10px 8px 10px #888888;
+        margin-bottom: 50px;
+    }
+    .chart-bar {
+        margin-left: 10px;
+        width: 55vw;
+        box-shadow: 10px 10px 8px 10px #888888;
+        margin-bottom: 100px;
+        height: 450px;
+    }
+    
+    .statistics-bar {
+        box-shadow: 10px 10px 8px 10px #888888;
+        display: inline-block;
+        float: left;
+        margin-left: 50px;
+        width: 400px;
+        padding: 30px 0 0 40px;
+        font-size: 22px;
+        color: rgb(0, 0, 0);
+        height: 450px;
+        box-sizing: border-box;
+    }
+    .statistics-bar p {
+        margin: 10px;
+        font-size: 24px;
+    }
+    .chart-barjs{
+        display: flex;
+    }
+    .menu {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .statistical div {
+        font-size: 10px;
+        background-color: rgb(57 132 191);
+        width: 24vw;
+        padding: 5px;
+        color: rgb(255, 255, 255);
+        border-radius: 10px;
+        box-shadow: 10px 10px 30px 5px grey;
+    }
+    .statistical {
+        padding: 20px 0px;
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+        font-size: 24px;
+        box-shadow: 10px 10px 8px 10px #888888;
+        margin-bottom: 50px;
+        width: 100vw;
+    }
+
+    #Title,h2 {
+        font-size: 20px !important;
+    }
+
+    .chart-bar {
+        width: 100vw;
+        height: 35vh;
+        position: relative;
+    }
+    
+    .statistics-bar {
+        margin: 20px 0;
+        width: 100vw;
+        padding: 20px 0 20px 40px;
+        font-size: 22px;
+        color: rgb(0, 0, 0);
+        height: auto;
+        box-sizing: border-box;
+    }
+}

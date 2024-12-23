@@ -5,7 +5,10 @@ include("../class.php");
 include("../side_nav.php");
 
 if (!$_SESSION['uname'])
-    header('Location: https://vatlytruongnghiem.edu.vn/');
+    echo '
+    <script>
+        window.location.href="../index.php";
+    </script>';
 
 if (isset($_GET['MaLop']) && isset($_GET['MaBH'])) {
     $maLop = $_GET['MaLop'];
@@ -133,7 +136,7 @@ $lesson_info = $conn->query("SELECT * FROM buoihoc WHERE MaBuoiHoc = '$maBH'")->
 
     <script>
         function themHS() {
-            window.open("/student/add_student.php?MaLop=<?php echo $maLop ?>");
+            window.open("../student/add_student.php?MaLop=<?php echo $maLop ?>");
         }
     </script>
 

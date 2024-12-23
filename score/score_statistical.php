@@ -4,7 +4,10 @@ session_start();
 include("../side_nav.php");
 
 if (!$_SESSION['uname'])
-    header('Location: https://vatlytruongnghiem.edu.vn/login.php');
+    echo '
+    <script>
+        window.location.href="../index.php";
+    </script>';
 
 if (isset($_GET['MaLop']) && isset($_GET['MaBuoiHoc'])) {
     $maLop = $_GET['MaLop'];
@@ -131,7 +134,7 @@ if ($sort == 0) {
         </h1>
         <h2 style="margin: 10px">Tên bài: <?php echo $lesson_info['TenBai'] . ' - ' . $lesson_info['Ngay'] ?> </h2>
 
-        <form action="/score/score_statistical.php" method="GET" style="margin-bottom: 15px;">
+        <form action="../score/score_statistical.php" method="GET" style="margin-bottom: 15px;">
             <input type="hidden" name="MaBuoiHoc" value="<?php echo $maBH; ?>">
             <input type="hidden" name="MaLop" value="<?php echo $maLop; ?>">
             <label for="sort" style="margin-right: 10px;">Sắp xếp:</label>

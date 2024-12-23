@@ -4,13 +4,11 @@ session_start();
 include("../side_nav.php");
 
 // Kiểm tra xem người dùng đã đăng nhập chưa
-if (!$_SESSION['uname']) {
-    echo '<script>
-    alert("Bạn cần đăng nhập để truy cập trang này!");
-    window.location.href="https://vatlytruongnghiem.edu.vn/";
+if (!$_SESSION['uname'])
+    echo '
+    <script>
+        window.location.href="../index.php";
     </script>';
-    exit();
-}
 
 // Kiểm tra mã lớp
 if ($_GET['MaLop']) {

@@ -11,7 +11,7 @@
 /* Fixed sidenav, full height */
 .sidenav {
     height: 100%;
-    width: 220px;
+    width: 240px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -25,7 +25,7 @@
 .dropdown-container button, .dropdown-btn {
     padding: 15px 15px 15px 20px;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 18px;
     color: #FFFFFF80;
     display: block;
     border: none;
@@ -41,7 +41,7 @@
 .dropdown-container a, .dropdown-btn {
     padding: 15px 15px 15px 20px;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 18px;
     color: #FFFFFF80;
     display: block;
     border: none;
@@ -69,8 +69,8 @@
     gap: 15px;
 }
 .dropdown-admin{
-    padding: 15px 15px 15px 15px;
-    background-color: #4BCF99;
+    padding: 21px 15px 21px 15px;
+    background-color:#41B3A3;
     color: #FFFFFF;
     text-align: center;
 }

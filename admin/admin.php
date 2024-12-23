@@ -26,28 +26,6 @@ include("../side_nav.php");
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-    <style>
-        .count {
-            display: flex;
-            justify-content: start;
-        }
-
-        .count_box {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background-color: #2cdaff99;
-            width: 350px;
-            height: 100px;
-            margin: 25px;
-            border-radius: 15px;
-        }
-
-        .count_box>p {
-            font-size: 24px;
-        }
-    </style>
 </head>
 
 <body>
@@ -117,6 +95,8 @@ include("../side_nav.php");
                         datasets: [{
                             label: 'Số lượng học sinh',
                             data: data.map(row => row.SoLuongHocSinh), // Số lượng học sinh
+                            backgroundColor: 'rgba(0, 128, 0, 0.5)', // Màu xanh lá nhạt
+                            borderColor: '#41B3A3', // Viền màu xanh lá đậm
                             borderWidth: 1
                         }]
                     },
@@ -142,6 +122,7 @@ include("../side_nav.php");
                     }
                 });
             </script>
+
 
         </div>
     </div>

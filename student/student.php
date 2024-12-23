@@ -11,7 +11,7 @@ if (isset($_GET['MaHS']) && isset($_GET['MaPL'])) {
         get_ip($conn, $maHS, $maLop);
     }
 } else {
-    header('Location: ../index.php');
+    header('Location: ..../index.php');
 }
 ?>
 
@@ -21,7 +21,7 @@ if (isset($_GET['MaHS']) && isset($_GET['MaPL'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="../assets/image/logo.png">
+    <link rel="icon" type="image/x-icon" href="../assets/image/logoTH.jpg">
     <title>Thông tin học sinh</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/student_style.css">
@@ -50,31 +50,28 @@ if (isset($_GET['MaHS']) && isset($_GET['MaPL'])) {
 <body>
     <div id="header">
         <div class="contact_phone">
-            <p><i class="fa-solid fa-phone icon"></i> 0918083884</p>
+            <p><i class="fa-solid fa-phone icon"></i> 098 336 1907</p>
             <p style="font-size: 20px;">|</p>
-            <p><i class="ti-email icon"></i> lethuyntt0708@gmail.com</p>
+            <p><i class="ti-email icon"></i> nghiemcn@gmail.com</p>
         </div>
         <div class="network_contact">
-            <a href="https://www.facebook.com/thuyvytrinhkhue?mibextid=LQQJ4d"><i class="ti-facebook icon"></i></a>
+            <a href="https://www.facebook.com/truongnghiem.dhcn"><i class="ti-facebook icon"></i></a>
             <a><i class="ti-google icon"></i></a>
             <a><i class="ti-sharethis icon"></i></a>
         </div>
     </div>
     <div id="slider">
         <div class="logo">
-            <a href="../index.php">
-                <img src="../assets/image/logoTH.jpg" alt="logo">
-            </a>
-            <a href="/index.php">
-                <h1>Lê Thị Thanh Thủy</h1>
-            </a>
+            <img src="../assets/image/logoTH.jpg" alt="logo">
+            <h1>PHẠM TRƯỜNG NGHIÊM</h1>
             <button class="menu_button" onclick="Show()"><i class="ti-view-list icon"></i></button>
         </div>
         <div class="menu" id="menu">
-            <a href="../index.php">Trang chủ</a>
-            <a href="../index.php#content">Tra cứu</a>
-            <a href="../login.php">Quản trị</a>
-            <a href="../index.php#footer">Liên hệ</a>
+            <a href="../index.php">HOME</a>
+            <a href="../index.php#content">ABOUT</a>
+            <a href="../login.php">ADMIN</a>
+            <a href="">EXPERIMENT</a>
+            <a href="../index.php#footer">CONTACT</a>
         </div>
     </div>
     <div id="content">
@@ -142,61 +139,7 @@ if (isset($_GET['MaHS']) && isset($_GET['MaPL'])) {
             }
             ?>
         </div>
-        <div class="score_table">
-            <h1>BẢNG ĐIỂM</h1>
-            <table>
-                <tr>
-                    <td style="width: 200px;">Ngày</td>
-                    <td style="width: 300px;">Tên Bài</td>
-                    <td style="width: 150px;">Điểm</td>
-                    <td style="width: 150px;">Điểm TB Lớp</td>
-                    <td style="width: 100px;">Xếp Hạng</td>
-                    <td style="width: 200px;">Đáp án</td>
-                    <!-- <td style="width: 200px;">BTVN</td> -->
-                </tr>
-                <?php
-                $query = "SELECT bh.MaBuoiHoc, bh.Ngay, ds.MaDiemSo, ds.Diem, bh.TenBai, bh.DapAn,
-                (SELECT ROUND(AVG(ds2.Diem), 2) FROM diemso ds2 
-                WHERE ds2.MaBuoiHoc = ds.MaBuoiHoc AND ds2.Diem >= 0 AND ds2.Diem <= 10 AND NOT ((Diem > 'a*' AND Diem < 'z*') OR (Diem > 'A*' AND Diem < 'Z*'))) AS TBL
-                FROM buoihoc bh 
-                JOIN diemso ds ON bh.MaBuoiHoc = ds.MaBuoiHoc 
-                WHERE ds.MaPhanLop = $maPL
-                ORDER BY Ngay DESC
-                ";
 
-                $result = mysqli_query($conn, $query);
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo '<tr> <td>' . $row['Ngay'] . '</td>';
-                        echo '<td>' . $row['TenBai'] . '</td>';
-                        echo '<td>' . $row['Diem'] . '</td>';
-                        echo '<td>' . $row['TBL'] . '</td>';
-                        $date = $row['Ngay'];
-                        if (is_numeric($row['Diem'])) {
-                            $maBH = $row['MaBuoiHoc'];
-                            $maDS = $row['MaDiemSo'];
-                            $sqlrank = "Select XepHang FROM (SELECT ds.MaBuoiHoc, ds.MaDiemSo, ds.Diem, RANK() OVER (PARTITION BY ds.MaBuoiHoc ORDER BY ds.Diem DESC) AS XepHang FROM diemso ds WHERE ds.MaBuoiHoc = $maBH) as Ranking WHERE Ranking.MaDiemSo =  $maDS";
-                            $rank = $conn->query($sqlrank)->fetch_assoc();
-                            echo '<td>' . $rank['XepHang'] . '</td>';
-                        } else {
-                            echo '<td>Không</td>';
-                        }
-                        if ($row['DapAn']) {
-                            echo '<td> <a href = "' . $row['DapAn'] . '" style ="color: #3300ff; text-decoration: underline"> Xem đáp án</a> </td>';
-                        } else {
-                            echo '<td> Chưa có đáp án </td>';
-                        }
-                        // if ($row['BTVN']) {
-                        //     echo '<td style = "color: blue"> Đã nộp </td>';
-                        // } else {
-                        //     echo '<td> <a href = "" style ="color: red; text-decoration: underline"> Nộp bài </a> </td>';
-                        // }
-                        echo '</tr>';
-                    }
-                }
-                ?>
-            </table>
-        </div>
         <?php
         $query = "SELECT bh.Ngay, ds.Diem, (SELECT ROUND(AVG(ds2.Diem), 2)
                                                     FROM diemso ds2
@@ -204,12 +147,11 @@ if (isset($_GET['MaHS']) && isset($_GET['MaPL'])) {
                                                     AND Diem >= 0 AND Diem <= 10  
                                                     AND NOT ((Diem > 'a*' AND Diem < 'z*') OR (Diem > 'A*' AND Diem < 'Z*'))) AS TBL
                 FROM buoihoc bh JOIN diemso ds ON bh.MaBuoiHoc = ds.MaBuoiHoc 
-                WHERE ds.MaPhanLop = $maPL  AND NOT ((Diem > 'a*' AND Diem < 'z*') OR (Diem > 'A*' AND Diem < 'Z*'))";
+                WHERE ds.MaPhanLop = $maPL and NOT ((Diem > 'a*' AND Diem < 'z*') OR (Diem > 'A*' AND Diem < 'Z*'))";
         $result = mysqli_query($conn, $query);
         $chart_data = '';
         $data_points = [];
         $index = 0;
-
         if ($result->num_rows > 1) {
             ?>
             <div class="chart">
@@ -334,23 +276,77 @@ if (isset($_GET['MaHS']) && isset($_GET['MaPL'])) {
         }
         ?>
 
+        <div class="score_table">
+            <h1>BẢNG ĐIỂM</h1>
+            <table>
+                <tr>
+                    <td style="width: 200px;">Ngày</td>
+                    <td style="width: 300px;">Tên Bài</td>
+                    <td style="width: 150px;">Điểm</td>
+                    <td style="width: 150px;">Điểm TB Lớp</td>
+                    <td style="width: 100px;">Xếp Hạng</td>
+                    <td style="width: 200px;">Đáp án</td>
+                    <!-- <td style="width: 200px;">BTVN</td> -->
+                </tr>
+                <?php
+                $query = "SELECT bh.MaBuoiHoc, bh.Ngay, ds.MaDiemSo, ds.Diem, bh.TenBai, bh.DapAn,
+                (SELECT ROUND(AVG(ds2.Diem), 2) FROM diemso ds2 
+                WHERE ds2.MaBuoiHoc = ds.MaBuoiHoc AND ds2.Diem >= 0 AND ds2.Diem <= 10 AND NOT ((Diem > 'a*' AND Diem < 'z*') OR (Diem > 'A*' AND Diem < 'Z*'))) AS TBL
+                FROM buoihoc bh 
+                JOIN diemso ds ON bh.MaBuoiHoc = ds.MaBuoiHoc 
+                WHERE ds.MaPhanLop = $maPL
+                ORDER BY Ngay DESC
+                ";
 
+                $result = mysqli_query($conn, $query);
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo '<tr> <td>' . $row['Ngay'] . '</td>';
+                        echo '<td>' . $row['TenBai'] . '</td>';
+                        echo '<td>' . $row['Diem'] . '</td>';
+                        echo '<td>' . $row['TBL'] . '</td>';
+                        $date = $row['Ngay'];
+                        if (is_numeric($row['Diem'])) {
+                            $maBH = $row['MaBuoiHoc'];
+                            $maDS = $row['MaDiemSo'];
+                            $sqlrank = "Select XepHang FROM (SELECT ds.MaBuoiHoc, ds.MaDiemSo, ds.Diem, RANK() OVER (PARTITION BY ds.MaBuoiHoc ORDER BY ds.Diem DESC) AS XepHang FROM diemso ds WHERE ds.MaBuoiHoc = $maBH) as Ranking WHERE Ranking.MaDiemSo =  $maDS";
+                            $rank = $conn->query($sqlrank)->fetch_assoc();
+                            echo '<td>' . $rank['XepHang'] . '</td>';
+                        } else {
+                            echo '<td>Không</td>';
+                        }
+                        if ($row['DapAn']) {
+                            echo '<td> <a href = "' . $row['DapAn'] . '" style ="color: #3300ff; text-decoration: underline"> Xem đáp án</a> </td>';
+                        } else {
+                            echo '<td> Chưa có đáp án </td>';
+                        }
+                        // if ($row['BTVN']) {
+                        //     echo '<td style = "color: blue"> Đã nộp </td>';
+                        // } else {
+                        //     echo '<td> <a href = "" style ="color: red; text-decoration: underline"> Nộp bài </a> </td>';
+                        // }
+                        echo '</tr>';
+                    }
+                }
+                ?>
+            </table>
+        </div>
     </div>
     <div id="footer">
         <div class="address">
             <div class="get-in-touch">
-                <div>
-                    <h1>Liên hệ</h1>
-                </div>
-                <div>
-                    <h1>Lê Thị Thanh Thủy</h1>
-                    <p><i class="ti-map-alt icon"></i> Địa chỉ </p>
-                    <p><i class="ti-headphone-alt icon"></i> 0918 083 884</p>
-                    <p><a href="https://www.facebook.com/thuyvytrinhkhue?mibextid=LQQJ4d"><i
-                                class="ti-facebook icon"></i></a> Tất cả vì
-                        sự tiến bộ của học trò!</p>
-                    <p><i class="ti-email icon"></i> lethuyntt0708@gmail.com</p>
-                </div>
+                <h1>Phạm Trường Nghiêm</h1>
+                <p><a href="https://www.facebook.com/truongnghiem.dhcn"><i class="ti-facebook icon"></i></a> Tất cả vì
+                    sự tiến bộ của học trò!</p>
+                <h1>Get In Touch</h1>
+                <p><i class="ti-map-alt icon"></i> Số 32 - Ngõ 3 - Thôn Đông - Tàm Xá - Đông Anh - Hà Nội</p>
+                <p><i class="ti-map-alt icon"></i> Số 03 - Ngách 69 - Ngõ 260 - Cầu Giấy </p>
+                <p><i class="ti-headphone-alt icon"></i> 098 336 1907</p>
+                <p><i class="ti-email icon"></i> nghiemcn@gmail.com</p>
+            </div>
+            <div class="new-letter">
+                <h1>Contact</h1>
+                <input type="text"><button>Send</button>
             </div>
         </div>
         <div class="description">

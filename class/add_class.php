@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($conn->query($sql) === TRUE) {
                 echo '<script> 
                 alert("Thêm lớp thành công!");
-                window.location.href="/class/class_list.php";
+                window.location.href="../class/class_list.php";
                 </script>';
             } else {
                 echo '<script>
@@ -150,7 +150,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
             <button type="submit" class="submit-btn">Thêm lớp</button>
-            <a href="/class/class_list.php" class="cancel-btn">Hủy</a>
+            <a href="../class/class_list.php" class="cancel-btn">Hủy</a>
         </form>
     </div>
 </body>

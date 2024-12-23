@@ -12,12 +12,12 @@ if (isset($_GET['MaLop']) && isset($_GET['MaBuoiHoc'])) {
 } else if (!isset($_GET['MaLop'])) {
     echo '<script>
     alert("Không tìm thấy mã lớp");
-    window.location.href="/class/class_list.php";
+    window.location.href="../class/class_list.php";
     </script>';
 } else if (!isset($_GET['MaBuoiHoc'])) {
     echo '<script>
     alert("Không tìm thấy mã buổi học!");
-    window.location.href="/lesson/lesson_list.php?id=' . $maLop . '";
+    window.location.href="../lesson/lesson_list.php?id=' . $maLop . '";
     </script>';
 }
 

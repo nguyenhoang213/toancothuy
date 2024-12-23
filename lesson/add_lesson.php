@@ -18,7 +18,7 @@ if (isset($_GET['MaLop'])) {
 } else {
     echo '<script>
         alert("Không tìm thấy mã lớp!");
-        window.location.href="/class/class_list.php";
+        window.location.href="../class/class_list.php";
         </script>';
     exit();
 }
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($conn->query($sql)) {
             echo '<script>
                 alert("Thêm buổi học thành công!");
-                window.location.href="/lesson/lesson_list.php?id=' . $maLop . '";
+                window.location.href="../lesson/lesson_list.php?id=' . $maLop . '";
                 </script>';
         } else {
             echo '<script>alert("Lỗi: Không thể thêm buổi học do lỗi hệ thống!");</script>';
@@ -138,7 +138,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <button type="submit" class="submit-btn">Thêm buổi học</button>
-            <a href="/lesson/lesson_list.php?id=<?php echo $maLop ?>" class="cancel-btn">Hủy</a>
+            <a href="../lesson/lesson_list.php?id=<?php echo $maLop ?>" class="cancel-btn">Hủy</a>
         </form>
     </div>
 </body>

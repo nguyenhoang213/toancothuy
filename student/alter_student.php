@@ -17,7 +17,7 @@ if ($_GET['MaLop']) {
 } else {
   echo '<script>
     alert("Không tìm thấy mã lớp để chỉnh sửa!");
-    window.location.href="/class/class_list.php";
+    window.location.href="../class/class_list.php";
     </script>';
 }
 
@@ -34,14 +34,14 @@ if (isset($_GET['MaHS'])) {
   } else {
     echo '<script>
         alert("Học sinh không tồn tại!");
-        window.location.href="/student/student_list.php?id=' . $maLop . '";
+        window.location.href="../student/student_list.php?id=' . $maLop . '";
         </script>';
     exit();
   }
 } else {
   echo '<script>
     alert("Không tìm thấy mã học sinh để chỉnh sửa!");
-    window.location.href="/student/student_list.php?id=' . $maLop . '";
+    window.location.href="../student/student_list.php?id=' . $maLop . '";
     </script>';
   exit();
 }
@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($conn->query($sql) === TRUE) {
       echo '<script>
             alert("Cập nhật học sinh thành công!");
-            window.location.href="/student/student_list.php?id=' . $maLop . '";
+            window.location.href="../student/student_list.php?id=' . $maLop . '";
             </script>';
     } else {
       echo '<script>
@@ -219,7 +219,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
       <!-- Nút Cập Nhật -->
       <button type="submit" class="submit-btn">Cập nhật học sinh</button>
-      <a href="/student/student_list.php?id=<?php echo $maLop ?>" class=" cancel-btn">Hủy</a>
+      <a href="../student/student_list.php?id=<?php echo $maLop ?>" class=" cancel-btn">Hủy</a>
     </form>
   </div>
 </body>

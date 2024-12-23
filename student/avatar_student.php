@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
 } else {
     echo '<script>
             alert("Không xác định được lớp!");
-            window.location.href="/class/class_list.php?";
+            window.location.href="../class/class_list.php?";
             </script>';
 }
 

@@ -13,13 +13,13 @@ if (isset($_GET['MaLop']) && isset($_GET['MaBH'])) {
 } else if (!isset($_GET['MaLop'])) {
     echo '<script>
     alert("Không tìm thấy mã lớp");
-    window.location.href="/class/class_list.php";
+    window.location.href="../class/class_list.php";
     </script>';
 } else if (!isset($_GET['MaBuoiHoc'])) {
     $maLop = $_GET['MaLop'];
     echo '<script>
     alert("Không tìm thấy mã buổi học!");
-    window.location.href="/lesson/lesson_list.php?id=' . $maLop . '";
+    window.location.href="../lesson/lesson_list.php?id=' . $maLop . '";
     </script>';
 }
 $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = '$maLop'")->fetch_assoc();

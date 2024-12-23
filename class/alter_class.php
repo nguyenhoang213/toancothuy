@@ -25,14 +25,14 @@ if (isset($_GET['MaLop'])) {
     } else {
         echo '<script>
         alert("Lớp không tồn tại!");
-        window.location.href="/class/class_list.php";
+        window.location.href="../class/class_list.php";
         </script>';
         exit();
     }
 } else {
     echo '<script>
     alert("Không tìm thấy mã lớp để chỉnh sửa!");
-    window.location.href="/class/class_list.php";
+    window.location.href="../class/class_list.php";
     </script>';
     exit();
 }
@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($conn->query($sql) === TRUE) {
                 echo '<script>
                 alert("Cập nhật lớp thành công!");
-                window.location.href="/class/class_list.php";
+                window.location.href="../class/class_list.php";
                 </script>';
             } else {
                 echo '<script>
@@ -176,7 +176,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <!-- Nút Cập Nhật -->
             <button type="submit" class="submit-btn">Cập nhật lớp</button>
-            <a href="/class/class_list.php" class="cancel-btn">Hủy</a>
+            <a href="../class/class_list.php" class="cancel-btn">Hủy</a>
         </form>
     </div>
 </body>

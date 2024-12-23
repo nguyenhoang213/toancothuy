@@ -133,7 +133,7 @@ $lesson_info = $conn->query("SELECT * FROM buoihoc WHERE MaBuoiHoc = '$maBH'")->
 
     <script>
         function themHS() {
-            window.open("/student/add_student.php?MaLop=<?php echo $maLop ?>");
+            window.open("../student/add_student.php?MaLop=<?php echo $maLop ?>");
         }
     </script>
 

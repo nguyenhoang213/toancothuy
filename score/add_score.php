@@ -12,6 +12,10 @@ if (!isset($data['Score'], $data['MaPhanLop'], $data['MaBuoiHoc'], $data['MaLop'
 }
 
 $score = $data['Score'];
+if (is_numeric(substr($score, 0, 1))) {
+    $score = str_replace(',', '.', $score);
+    $score = (float) $score;
+}
 $maPhanLop = $data['MaPhanLop'];
 $maBuoiHoc = $data['MaBuoiHoc'];
 $maLop = $data['MaLop'];

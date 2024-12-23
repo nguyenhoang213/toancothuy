@@ -8,6 +8,10 @@ header("Content-Type: application/json");
 $data = json_decode(file_get_contents("php://input"), true);
 $maPhanLop = $data['MaPhanLop'] ?? null;
 $newScore = $data['Score'] ?? null;
+if (is_numeric(substr($newScore, 0, 1))) {
+    $newScore = str_replace(',', '.', $newScore);
+    $newScore = (float) $newScore;
+}
 
 // Khởi tạo phản hồi mặc định
 $response = ['success' => false, 'message' => ''];

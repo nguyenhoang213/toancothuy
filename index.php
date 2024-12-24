@@ -192,7 +192,7 @@ include('connection.php')
                             var classItem = document.createElement("button");
                             classItem.innerHTML = "Lớp: ' . $row['TenLop'] . ' (Mã lớp: ' . $row['MaLop'] . ')";
                             classItem.onclick = function() {
-                                window.location.href = "/student/student.php?MaHS=' . $maHS . '&MaPL=' . $row['MaPhanLop'] . '";
+                                window.location.href = "./student/student.php?MaHS=' . $maHS . '&MaPL=' . $row['MaPhanLop'] . '";
                             };
                             classListDiv.appendChild(classItem);
                         </script>';

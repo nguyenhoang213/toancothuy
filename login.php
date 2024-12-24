@@ -111,7 +111,7 @@ if (isset($_POST['login-button']) || isset($_POST['uname']) || isset($_POST['psw
         <div class="logo">
             <img src="assets/image/logoTH.jpg" alt="logo">
             <h1>Lê Thị Thanh Thủy</h1>
-            <button class="menu_button" onclick="Show()"><i class="ti-view-list icon"></i></button>
+            <button class="menu_button" onclick="toggleMenu()"><i class="ti-view-list icon"></i></button>
         </div>
         <div class="menu" id="menu">
             <a href="./index.php">Trang chủ</a>
@@ -125,11 +125,13 @@ if (isset($_POST['login-button']) || isset($_POST['uname']) || isset($_POST['psw
             <h1>ĐĂNG NHẬP</h1>
             <form action="" method="POST">
                 <div style="position: absolute; margin-left: 66px;margin-top: 11px;font-size: 18px; border:2px solid black ; border-radius: 50px; height: 26px;
-    width: 26px;"><i style="margin-left: 5px; margin-top: 4px" class="fa-solid fa-user"></i></div><input name="uname"
-                    type="text" placeholder="TÀI KHOẢN" class="text-input" required> <br>
+    width: 26px;"><i style="margin-left: 5px; margin-top: 4px" class="fa-solid fa-user"></i>
+                </div>
+                <input name="uname" type="text" placeholder="TÀI KHOẢN" class="text-input" required> <br>
                 <div style="position: absolute; margin-left: 66px;margin-top: 11px;font-size: 18px; border:2px solid black ; border-radius: 50px; height: 26px;
-    width: 26px;"><i style="margin-left: 5px; margin-top: 4px" class="fa-solid fa-lock"></i></div><input name="psw"
-                    type="password" placeholder="MẬT KHẨU" class="text-input" required> <br>
+    width: 26px;"><i style="margin-left: 5px; margin-top: 4px" class="fa-solid fa-lock"></i>
+                </div>
+                <input name="psw" type="password" placeholder="MẬT KHẨU" class="text-input" required> <br>
                 <input name="remember" type="checkbox" class="checkbox"> Lưu Mật Khẩu <br>
                 <div class="button-list">
                     <button style="background-color: aqua;color: rgb(0, 0, 0);">QUÊN MẬT KHẨU</button>
@@ -162,6 +164,21 @@ if (isset($_POST['login-button']) || isset($_POST['uname']) || isset($_POST['psw
             </div>
         </div>
 </body>
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById("menu");
+        const logo = document.querySelector(".logo");
+
+        // Chuyển đổi trạng thái hiển thị của menu
+        if (menu.style.display === "block") {
+            menu.style.display = "none"; // Ẩn menu
+            logo.style.display = "flex"; // Hiện lại logo và tên
+        } else {
+            menu.style.display = "block"; // Hiện menu
+            logo.style.display = "none"; // Ẩn logo và tên
+        }
+    }
+</script>
 
 </html>
 

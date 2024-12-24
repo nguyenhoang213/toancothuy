@@ -37,7 +37,7 @@
   border-radius: 0;
   border: none;
   border-bottom: 1px solid;
-  margin: 1px 50px 20px 50px;
+  margin: 1px 0px 20px 50px;
 }
 
 #content .login input:focus-visible {
@@ -64,13 +64,26 @@
 }
 
 @media only screen and (max-width: 600px) {
-  #content {
-    background: none;
-  }
   #content .login {
-    width: 95vw;
+    padding: 10px;
+    width: 90%;
   }
+
   #content .login .text-input {
-    width: 60vw;
+    width: 35vw;
+  }
+  #content .login .button-list{
+    display: flex;
+    justify-content: center;
+  }
+  #content .login .button-list button {
+    font-size: 10px;
+    height: 43px;
+    width: 135px;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 20px;
   }
 }

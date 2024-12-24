@@ -118,11 +118,11 @@ include('connection.php')
             <a href="./index.php">
                 <img src="assets/image/logoTH.jpg" alt="logo">
             </a>
-            <a href="/index.php">
+            <a href="./index.php">
                 <h1>Lê Thị Thanh Thủy</h1>
             </a>
-
-            <button class="menu_button" onclick="Show()"><i class="ti-view-list icon"></i></button>
+            <!-- Nút menu sẽ chỉ hiển thị ở chế độ responsive -->
+            <button class="menu_button" onclick="toggleMenu()"><i class="ti-view-list icon"></i></button>
         </div>
         <div class="menu" id="menu">
             <a href="./index.php">Trang chủ</a>
@@ -130,13 +130,14 @@ include('connection.php')
             <a href="./login.php">Quản trị</a>
             <a href="./index.php#footer">Liên hệ</a>
         </div>
+
     </div>
     <div id="content">
         <div class="find-box">
             <h1>TRA CỨU THÔNG TIN HỌC SINH</h1>
             <form action="" method="GET">
                 <input type="text" name="PhoneNumber" placeholder="Số Điện Thoại"><button type="submit"
-                    style="background-color:red">Tìm
+                    style="background-color:#4336fb; color: white;">Tìm
                     Kiếm</button>
             </form>
             <div class="popup-overlay" id="popupOverlay"></div>
@@ -249,6 +250,24 @@ include('connection.php')
             <p>Desgined by <a href="https://www.facebook.com/as.royal03/">Nguyễn Như Hoàng</a>.</p>
         </div>
     </div>
+
 </body>
+<script>
+    function toggleMenu() {
+    const menu = document.getElementById("menu");
+    const logo = document.querySelector(".logo");
+    
+    // Chuyển đổi trạng thái hiển thị của menu
+    if (menu.style.display === "block") {
+        menu.style.display = "none"; // Ẩn menu
+        logo.style.display = "flex"; // Hiện lại logo và tên
+    } else {
+        menu.style.display = "block"; // Hiện menu
+        logo.style.display = "none"; // Ẩn logo và tên
+    }
+}
+
+
+</script>
 
 </html>

@@ -109,8 +109,12 @@ if (isset($_POST['login-button']) || isset($_POST['uname']) || isset($_POST['psw
     </div>
     <div id="slider">
         <div class="logo">
-            <img src="assets/image/logoTH.jpg" alt="logo">
-            <h1>Lê Thị Thanh Thủy</h1>
+            <a href="./index.php">
+                <img src="assets/image/logoTH.jpg" alt="logo">
+            </a>
+            <a href="./index.php">
+                <h1>Lê Thị Thanh Thủy</h1>
+            </a>
             <button class="menu_button" onclick="toggleMenu()"><i class="ti-view-list icon"></i></button>
         </div>
         <div class="menu" id="menu">

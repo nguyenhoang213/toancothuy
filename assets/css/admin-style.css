@@ -16,7 +16,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: #41B3A3;
+  background-color: #2cdaff99;
   width: 350px;
   height: 100px;
   margin: 25px;
@@ -25,4 +25,17 @@
 
 .count_box > p {
   font-size: 24px;
+}
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  margin: 0 auto;
+  width: 80%;
+}
+
+canvas {
+  max-width: 100%;
+  max-height: 100%;
 }

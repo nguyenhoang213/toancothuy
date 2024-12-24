@@ -46,66 +46,13 @@ $conn->query($update);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-    <style>
-        .content {
-            padding-left: 50px;
-
-        }
-
-        .count {
-            display: flex;
-            justify-content: start;
-        }
-
-        .count_box {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background-color: #2cdaff99;
-            width: 350px;
-            height: 100px;
-            margin: 25px 50px 25px 0;
-            border-radius: 15px;
-        }
-
-        .count_box>p {
-            font-size: 24px;
-        }
-
-        .chart {
-            text-align: center;
-        }
-
-        table th,
-        table td {
-            padding: 8px;
-            font-size: 16px;
-            border: 1px solid #0d0d0d;
-        }
-
-        table th {
-            background-color: #f2f2f2;
-            font-weight: bold;
-        }
-
-        table tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        table tr:hover {
-            background-color: #f1f1f1;
-        }
-
-        table {
-            width: 80vw;
-        }
-    </style>
+    
 </head>
 
 <body>
-    <h1 style="margin: 15px 0 0 240px">THỐNG KÊ LỚP <?php echo $class_info['TenLop'] ?> </h1>
+    
     <div class="content">
+    <h1 style="padding:  30px 0;">THỐNG KÊ LỚP <?php echo $class_info['TenLop'] ?> </h1>
         <div class="count">
             <div>
                 <div class="count">
@@ -249,8 +196,8 @@ $conn->query($update);
                         datasets: [{
                             label: 'Số lượng học sinh',
                             data: studentCounts, // Số lượng học sinh
-                            backgroundColor: '#0066FF', // Màu nền
-                            borderColor: '#3399FF', // Màu viền
+                            backgroundColor: '#73bee4', // Màu nền
+                            borderColor: '#73bee4', // Màu viền
                             borderWidth: 1
                         }]
                     },
@@ -311,6 +258,7 @@ $conn->query($update);
     function redirectToScore(maBuoiHoc, maLop) {
         window.location.href = `../score/score_statistical.php?MaBuoiHoc=${maBuoiHoc}&MaLop=${maLop}`;
     }
+    
 </script>
 
 </html>

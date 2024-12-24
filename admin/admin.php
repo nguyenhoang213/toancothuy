@@ -30,7 +30,7 @@ include("../side_nav.php");
 
 <body>
     <div class="content">
-        <h1 style="margin: 10px">TRANG QUẢN TRỊ HỆ THỐNG</h1>
+        <h1 style="padding: 10px 0;">TRANG QUẢN TRỊ HỆ THỐNG</h1>
         <div class="count">
             <div class="count_box">
                 <?php
@@ -77,9 +77,11 @@ include("../side_nav.php");
             ?>
 
             <h1>Biểu đồ số lượng học sinh theo lớp</h1>
-            <div style="width: 1000px; height: 500px;">
+
+            <div class="chart-container">
                 <canvas id="myChart"></canvas>
             </div>
+
 
 
             <script>
@@ -95,9 +97,9 @@ include("../side_nav.php");
                         datasets: [{
                             label: 'Số lượng học sinh',
                             data: data.map(row => row.SoLuongHocSinh), // Số lượng học sinh
-                            backgroundColor: 'rgba(0, 128, 0, 0.5)', // Màu xanh lá nhạt
-                            borderColor: '#41B3A3', // Viền màu xanh lá đậm
-                            borderWidth: 1
+                            backgroundColor: 'rgba(75, 117, 171, 0.5)', // Màu xanh lá nhạt
+                            borderColor: 'rgba(75, 117, 171, 0.5)', // Viền màu xanh lá đậm
+                            borderWidth: 1,
                         }]
                     },
                     options: {
@@ -121,6 +123,7 @@ include("../side_nav.php");
                         }
                     }
                 });
+
             </script>
 
 

@@ -50,29 +50,34 @@ if (isset($_GET['MaHS']) && isset($_GET['MaPL'])) {
 <body>
     <div id="header">
         <div class="contact_phone">
-            <p><i class="fa-solid fa-phone icon"></i> 098 336 1907</p>
+            <p><i class="fa-solid fa-phone icon"></i> 0918083884</p>
             <p style="font-size: 20px;">|</p>
-            <p><i class="ti-email icon"></i> nghiemcn@gmail.com</p>
+            <p><i class="ti-email icon"></i> lethuyntt0708@gmail.com</p>
         </div>
         <div class="network_contact">
-            <a href="https://www.facebook.com/truongnghiem.dhcn"><i class="ti-facebook icon"></i></a>
+            <a href="https://www.facebook.com/thuyvytrinhkhue?mibextid=LQQJ4d"><i class="ti-facebook icon"></i></a>
             <a><i class="ti-google icon"></i></a>
             <a><i class="ti-sharethis icon"></i></a>
         </div>
     </div>
     <div id="slider">
         <div class="logo">
-            <img src="../assets/image/logoTH.jpg" alt="logo">
-            <h1>PHẠM TRƯỜNG NGHIÊM</h1>
-            <button class="menu_button" onclick="Show()"><i class="ti-view-list icon"></i></button>
+            <a href="../index.php">
+                <img src="../assets/image/logoTH.jpg" alt="logo">
+            </a>
+            <a href="../index.php">
+                <h1>Lê Thị Thanh Thủy</h1>
+            </a>
+            <!-- Nút menu sẽ chỉ hiển thị ở chế độ responsive -->
+            <button class="menu_button" onclick="toggleMenu()"><i class="ti-view-list icon"></i></button>
         </div>
         <div class="menu" id="menu">
-            <a href="../index.php">HOME</a>
-            <a href="../index.php#content">ABOUT</a>
-            <a href="../login.php">ADMIN</a>
-            <a href="">EXPERIMENT</a>
-            <a href="../index.php#footer">CONTACT</a>
+            <a href="../index.php">Trang chủ</a>
+            <a href="../index.php#content">Tra cứu</a>
+            <a href="../login.php">Quản trị</a>
+            <a href="../index.php#footer">Liên hệ</a>
         </div>
+
     </div>
     <div id="content">
         <div class="student_info">
@@ -335,18 +340,18 @@ if (isset($_GET['MaHS']) && isset($_GET['MaPL'])) {
     <div id="footer">
         <div class="address">
             <div class="get-in-touch">
-                <h1>Phạm Trường Nghiêm</h1>
-                <p><a href="https://www.facebook.com/truongnghiem.dhcn"><i class="ti-facebook icon"></i></a> Tất cả vì
-                    sự tiến bộ của học trò!</p>
-                <h1>Get In Touch</h1>
-                <p><i class="ti-map-alt icon"></i> Số 32 - Ngõ 3 - Thôn Đông - Tàm Xá - Đông Anh - Hà Nội</p>
-                <p><i class="ti-map-alt icon"></i> Số 03 - Ngách 69 - Ngõ 260 - Cầu Giấy </p>
-                <p><i class="ti-headphone-alt icon"></i> 098 336 1907</p>
-                <p><i class="ti-email icon"></i> nghiemcn@gmail.com</p>
-            </div>
-            <div class="new-letter">
-                <h1>Contact</h1>
-                <input type="text"><button>Send</button>
+                <div>
+                    <h1>Liên hệ</h1>
+                </div>
+                <div>
+                    <h1>Lê Thị Thanh Thủy</h1>
+                    <p><i class="ti-map-alt icon"></i> Địa chỉ </p>
+                    <p><i class="ti-headphone-alt icon"></i> 0918 083 884</p>
+                    <p><a href="https://www.facebook.com/thuyvytrinhkhue?mibextid=LQQJ4d"><i
+                                class="ti-facebook icon"></i></a> Tất cả vì
+                        sự tiến bộ của học trò!</p>
+                    <p><i class="ti-email icon"></i> lethuyntt0708@gmail.com</p>
+                </div>
             </div>
         </div>
         <div class="description">
@@ -355,7 +360,23 @@ if (isset($_GET['MaHS']) && isset($_GET['MaPL'])) {
         </div>
     </div>
 </body>
+<script>
+    function toggleMenu() {
+    const menu = document.getElementById("menu");
+    const logo = document.querySelector(".logo");
+    
+    // Chuyển đổi trạng thái hiển thị của menu
+    if (menu.style.display === "block") {
+        menu.style.display = "none"; // Ẩn menu
+        logo.style.display = "flex"; // Hiện lại logo và tên
+    } else {
+        menu.style.display = "block"; // Hiện menu
+        logo.style.display = "none"; // Ẩn logo và tên
+    }
+}
 
+
+</script>
 </html>
 
 

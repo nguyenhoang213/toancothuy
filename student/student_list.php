@@ -119,6 +119,11 @@ $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = $maLop")->fetch_asso
             td {
                 font-size: 20px;
             }
+            .content button {
+                display: flex;
+                justify-content: end;
+            }
+
         }
 
         @media screen and (max-width: 600px) {
@@ -126,7 +131,11 @@ $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = $maLop")->fetch_asso
                 margin-top: 10px;
                 font-size: 20px
             }
-
+            table {
+                margin-top: 10px;
+                margin-left: -21px;
+                overflow-x: auto;
+            }
             .add_button {
                 margin: 10px;
 
@@ -137,6 +146,10 @@ $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = $maLop")->fetch_asso
             tr,
             td {
                 font-size: 12px;
+            }
+            .content button {
+                display: flex;
+                justify-content: end;
             }
         }
 
@@ -175,7 +188,7 @@ $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = $maLop")->fetch_asso
 
 <body>
     <div class="content">
-        <h1 style="padding-bottom: 10px">Quản lý học sinh <?php echo htmlspecialchars($class_info['TenLop']); ?></h1>
+        <h1 style="padding: 30px">Quản lý học sinh <?php echo htmlspecialchars($class_info['TenLop']); ?></h1>
         <!-- Nút thêm học sinh mới -->
         <a href="../student/add_student.php?MaLop=<?php echo $maLop; ?>" class="add_button">Thêm học sinh mới</a> <br>
 

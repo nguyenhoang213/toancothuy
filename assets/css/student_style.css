@@ -1,165 +1,168 @@
-#content .student_info{
-    position: relative;
-    height: 62vh;
-    width: 100vw;
-    text-align: center;
-    background: linear-gradient(rgba(72, 146, 251, 0.6), rgba(9, 112, 255, 0.6)), 
+#content .student_info {
+  position: relative;
+  height: 62vh;
+  width: 100vw;
+  text-align: center;
+  background: linear-gradient(rgba(72, 146, 251, 0.6), rgba(174, 215, 213, 0.6)),
     url(../image/banner.png), no-repeat center center;
-    background-size: cover;
+  background-size: cover;
 }
 
-#content .student_info h1{
-    margin-top: 0;
-    padding-top: 2vh;
-    font-size: 50px;
-    color: white;
-    text-shadow: 4px 4px black;
-    margin-bottom: 10px;
+#content .student_info h1 {
+  margin-top: 0;
+  padding-top: 2vh;
+  font-size: 50px;
+  color: white;
+  text-shadow: 4px 4px black;
+  margin-bottom: 10px;
 }
 
 #content .student_info::after {
-    bottom: 0;
-    background: url(../image/overlay-bottom.png) bottom center no-repeat;
-    background-size: contain;
-    position: absolute;
-    content: "";
-    width: 100vw;
-    height: 80px;
-    left: 0;
-    z-index: 1;
-    box-sizing: border-box;
+  bottom: 0;
+  background: url(../image/overlay-bottom.png) bottom center no-repeat;
+  background-size: contain;
+  position: absolute;
+  content: "";
+  width: 100vw;
+  height: 80px;
+  left: 0;
+  z-index: 1;
+  box-sizing: border-box;
 }
 
-#content .student_info_box img{
-    width: 15rem;
-    height: 20rem;
-    border: solid;
-    border-radius: 15px;
+#content .student_info_box img {
+  width: 15rem;
+  height: 20rem;
+  border: solid;
+  border-radius: 15px;
 }
 
-#content .student_info_box p{
-    font-family: 'Montserrat';
-    font-weight: bold;
-    list-style: none;
-    font-size: 26px;
-    text-align: left;
-    color: rgb(0, 0, 0);
-    margin-left: 10px;
+#content .student_info_box p {
+  font-family: "Montserrat";
+  font-weight: bold;
+  list-style: none;
+  font-size: 26px;
+  text-align: left;
+  color: rgb(0, 0, 0);
+  margin-left: 10px;
 }
 
-#content .student_info_box{
-    display: flex;
-    justify-content:start;
-    background-color: rgb(188, 249, 255);
-    font-weight: bold;
-    width: 700px;
-    padding: 30px 30px;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
-    z-index: 2;
-    border-radius: 15px;
-    padding-right: 0px;
+#content .student_info_box {
+  display: flex;
+  justify-content: start;
+  background-color: rgb(188, 249, 255);
+  font-weight: bold;
+  width: 700px;
+  padding: 30px 30px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 2;
+  border-radius: 15px;
+  padding-right: 0px;
 }
 
 #content .student_info_box .student_info_text {
-
 }
 
-#content .chart{
-    text-align: center;
+#content .chart {
+  text-align: center;
 }
 
-#content .chart h1{
-    font-size: 50px;
-    text-shadow: 2px 2px rgb(196, 196, 196);
-    margin-bottom: 0px;
+#content .chart h1 {
+  font-size: 50px;
+  text-shadow: 2px 2px rgb(196, 196, 196);
+  margin-bottom: 0px;
 }
 
 #content .chart .line-chart {
-    position: relative; 
-    height:80vh; 
-    width:90vw;
-    left: 50%;
-    transform: translate(-50%, 0);
+  position: relative;
+  height: 80vh;
+  width: 90vw;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
-    
+
 #content .chart h1 {
-    margin-top: 40px;
-    margin-bottom: 10px;
+  margin-top: 40px;
+  margin-bottom: 10px;
 }
 
-#content .score_table{
-    margin-top: 70px;
+#content .score_table {
+  margin-top: 70px;
+  text-align: center;
+}
+#content .score_table h1 {
+  font-size: 40px;
+  text-shadow: 2px 2px rgb(196, 196, 196);
+  margin-bottom: 20px;
+}
+
+#content .score_table table {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  margin-bottom: 50px;
+}
+
+table,
+th,
+td {
+  border: 1.5px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th,
+td {
+  background-color: #ffffff;
+  height: 35px;
+}
+
+@media only screen and (max-width: 600px) {
+  #content .student_info {
+    position: relative;
     text-align: center;
-}
-#content .score_table h1{
-    font-size: 40px;
-    text-shadow: 2px 2px rgb(196, 196, 196);
-    margin-bottom: 20px;
-}
-
-#content .score_table table{
-    position: relative; 
+    background: none;
+    background-size: contain;
+    height: 200px;
+  }
+  #content .student_info h1 {
+    padding-top: 2vh;
+    font-size: 28px;
+    color: rgb(0, 0, 0);
+    text-shadow: none;
+    margin-bottom: 10px;
+  }
+  #content .student_info_box {
+    width: 95vw;
+    padding: 30px 20px;
+    box-sizing: border-box;
+  }
+  #content .student_info_box p {
+    font-size: 12px;
+    margin-right: 15px;
+  }
+  #content .student_info_box img {
+    width: 100px;
+    height: 133px;
+  }
+  #content .chart h1 {
+    margin-top: 60px;
+    padding-top: 2vh;
+    font-size: 28px;
+    color: rgb(0, 0, 0);
+    margin-bottom: 10px;
+  }
+  #content .chart .line-chart {
+    position: relative;
+    height: 50vh;
+    width: 110vw;
     left: 50%;
     transform: translate(-50%, 0);
-    margin-bottom: 50px;
-}
-
-table, th, td {
-    border: 1.5px solid black;
-    border-collapse: collapse;  
-    text-align: center;
-}
-
-th, td {
-    background-color: #ffffff;
-    height: 35px;
-}
-
-@media only screen and (max-width: 600px){
-    #content .student_info{
-        position: relative; 
-        text-align: center;
-        background: none;
-        background-size: contain;
-        height: 200px;
-    }
-    #content .student_info h1{
-        padding-top: 2vh;
-        font-size: 28px;
-        color: rgb(0, 0, 0);
-        text-shadow: none;
-        margin-bottom: 10px;
-    }
-    #content .student_info_box {
-        width: 95vw;
-        padding: 30px 20px;
-        box-sizing: border-box;
-    }
-    #content .student_info_box p{
-        font-size: 12px;
-        margin-right: 15px;
-    }
-    #content .student_info_box img{
-        width: 100px;
-        height: 133px;
-    }
-    #content .chart h1{
-        margin-top: 60px;
-        padding-top: 2vh;
-        font-size: 28px;
-        color: rgb(0, 0, 0);
-        margin-bottom: 10px;
-    }
-    #content .chart .line-chart{
-        position: relative;
-        height:50vh; 
-        width:110vw;
-        left: 50%;
-        transform: translate(-50%, 0);
-    }
-    #content .score_table tr,td{
-        font-size: 12px;
-    }
+  }
+  #content .score_table tr,
+  td {
+    font-size: 12px;
+  }
 }

@@ -1,123 +1,106 @@
-.ti-angle-down{
-    margin-right: 5px;
-    font-size: 15px;
+.content {
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-@media screen and (min-width: 600px) {
-    .content #Title {
-        font-size: 40px;
-        text-align: left;;
-    }
-    
-    .chart-bar {
-        margin-left: 10px;
-        width: 55vw;
-        box-shadow: 10px 10px 8px 10px #888888;
-        margin-bottom: 50px;
-        height: 450px;
-    }
-    
-    .statistics-bar {
-        display: block;
-        box-shadow: 10px 10px 8px 10px #888888;
-        display: inline-block;
-        float: left;
-        margin-left: 50px;
-        width: 400px;
-        padding: 30px 0 0 40px;
-        font-size: 22px;
-        color: rgb(0, 0, 0);
-        height: 450px;
-        box-sizing: border-box;    
-    }
-    
-    #name {
-        margin-bottom: -20px;
-    }
-
-    .statistics-bar p {
-        font-size: 24px;
-        margin: 15px 0px;
-    }
-
-    .chart-barjs{
-        display: flex;
-        margin-top: 40px;
-    }
-    
-    .student-list {
-        width: 95%;
-    }
-    
-    table, th, td {
-        border: 1.5px solid black;
-        border-collapse: collapse;  
-        text-align: center;
-        font-size: 22px;
-    }
-    
-    tr {
-        text-align: center;
-    }
-    
-    table, th, td {
-        border: 1px solid rgb(0, 0, 0);
-        border-collapse: collapse;
-    }
-    .student-list button {
-        font-family: 'Montserrat';
-        background-color: inherit;
-        border: none;
-        font-size: 22px;
-    }
-    .hoten {
-        text-align:left;padding-left: 30px
-    }
+.count {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
-@media screen and (max-width: 600px) {
-    #Title,h2 {
-        font-size: 20px !important;
-    }
-    table, th, td {
-        border: 1.5px solid black;
-        border-collapse: collapse;  
-        text-align: center;
-        font-size: 8px;
-    }
-    .student-list button {
-        font-family: 'Montserrat';
-        background-color: inherit;
-        border: none;
-        font-size: 10px;
-    }
-    .student-list {
-        width: 100vw;
-    }
-    .chart-bar {
-        width: 100vw;
-        height: auto;
-        height: 40vh;
-    }
-    .statistics-bar p {
-        font-size: 16px;
-        margin: 8px 0px;
-    }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 10px;
 }
 
-#not-fix {
-    display: none;
+table th,
+table td {
+  padding: 10px;
+  font-size: 16px;
+  text-align: center;
+  border: 1px solid #ddd;
 }
 
-#fix{
-    display: inline-table;
+table th {
+  background-color: #f4f4f4;
 }
 
-.show {
-    display: inline-table !important;
+table tr:nth-child(even) {
+  background-color: #f9f9f9;
 }
 
-.hide {
-    display: none !important;
-    
+table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.chart {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+
+.chart canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .count {
+    flex-wrap: nowrap;
+    gap: 40px;
+  }
+
+  .chart {
+    max-width: 600px;
+    margin: 20px auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  table th,
+  table td {
+    font-size: 14px;
+  }
+  table {
+    margin: 0px -14px;
+  }
+  .chart {
+    margin: 10px 0;
+  }
+
+  .statistics-bar p {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  table th,
+  table td {
+    font-size: 12px;
+    padding: 8px;
+  }
+  table {
+    margin: 0px -14px;
+  }
+  .chart {
+    margin: 10px 0;
+  }
+
+  .statistics-bar p {
+    font-size: 16px;
+  }
 }

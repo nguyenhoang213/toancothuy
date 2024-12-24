@@ -129,7 +129,7 @@ if ($sort == 0) {
 <body>
     <div class="content">
         <!-- End: Statistical -->
-        <h1 style="margin: 15px 0;" id="Title">PHỔ ĐIỂM
+        <h1 style="padding: 30px;;" id="Title">PHỔ ĐIỂM
             <?php echo $class_info['TenLop'] ?>
         </h1>
         <h2 style="margin: 10px">Tên bài: <?php echo $lesson_info['TenBai'] . ' - ' . $lesson_info['Ngay'] ?> </h2>

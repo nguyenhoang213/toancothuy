@@ -7,7 +7,7 @@ if (isset($_GET['MaHS']) && isset($_GET['MaPL'])) {
     $maPL = $_GET['MaPL'];
     $getLop = $conn->query("SELECT MaLop FROM phanlop WHERE MaPhanLop = '$maPL'")->fetch_assoc();
     $maLop = $getLop['MaLop'];
-    if (!$_SESSION['uname']) {
+    if (!isset($_SESSION['uname'])) {
         get_ip($conn, $maHS, $maLop);
     }
 } else {

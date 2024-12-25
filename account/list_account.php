@@ -57,14 +57,21 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="../assets/font/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
         table th,
         table td {
-            padding: 8px;
-            border: 1px solid #0d0d0d;
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
         }
 
         table th {
-            background-color: #f2f2f2;
+            background-color: #f4f4f4;
             font-weight: bold;
         }
 
@@ -79,58 +86,79 @@ $result = $conn->query($sql);
         .submit-btn {
             background-color: #007fd5;
             color: white;
-            border-color: #007fd5;
+            border: none;
+            padding: 10px 20px;
             cursor: pointer;
+            font-size: 16px;
         }
 
         .submit-btn:hover {
-            background-color: #004ed5;
-            border-color: #004ed5;
+            background-color: #005bb5;
         }
 
-
-        @media screen and (min-width: 600px) {
-            .add_button {
-                margin: 20px;
-                font-size: 24px
-            }
-
-            .class_list th,
-            tr,
-            td {
-                font-size: 20px;
-            }
+        .add_button {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 4px;
+            margin: 20px 0;
         }
 
-        @media screen and (max-width: 600px) {
-            h1 {
-                margin-top: 10px;
-                font-size: 20px
+        .add_button:hover {
+            background-color: #218838;
+        }
+
+        .form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .form input,
+        .form select {
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 600px) {
+            table th,
+            table td {
+                font-size: 14px;
+                padding: 8px;
             }
 
             .add_button {
-                margin: 10px;
-
-                font-size: 12px;
+                font-size: 14px;
+                padding: 8px 16px;
             }
 
-            .class_list th,
-            tr,
-            td {
-                font-size: 12px;
+            .form input,
+            .form select {
+                font-size: 14px;
+                width: 100%;
+            }
+
+            .submit-btn {
+                width: 100%;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="content" style="padding-top: 20px;">
+    <div class="content" style="padding: 40px;">
         <h1 style="padding-bottom: 10px">Quản lý tài khoản</h1>
         <!-- Nút thêm tài khoản mới -->
         <a href="../account/add_account.php" class="add_button">Thêm tài khoản mới</a> <br>
 
         <!-- Tìm kiếm -->
-        <form method="GET" action="" style="margin: 20px 0;">
+        <form class="form" method="GET" action="" style="margin: 20px 0;">
             <label for="">Tìm kiếm</label>
             <input type="text" name="search" placeholder="Nhập tên tài khoản"
                 value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>"

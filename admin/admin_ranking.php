@@ -69,7 +69,7 @@ $result = $conn->query($query);
 <body>
     <div class="content">
         <h1 style="padding-top: 20px;">Xếp hạng <?php echo $class_info['TenLop'] ?></h1>
-        <form method="GET" style="margin: 15px 0">
+        <form class="form" method="GET" style="margin: 15px 0">
             <label for="filter">Lọc theo:</label>
             <input type="hidden" name="id" value="<?php echo $maLop ?>">
             <select name="filter" id="filter" onchange="this.form.submit()">

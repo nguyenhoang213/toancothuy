@@ -66,10 +66,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../assets/css/admin-navigation.css">
     <link rel="stylesheet" href="../assets/css/admin-statistical.css">
     <style>
+        .content {
+            padding: 40px;
+        }
+
         @media screen and (min-width: 600px) {
             .content {
                 margin-left: 240px;
                 width: 80%;
+
             }
         }
 

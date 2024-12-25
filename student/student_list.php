@@ -138,8 +138,14 @@ $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = $maLop")->fetch_asso
 
         @media screen and (min-width: 600px) {
             .add_button {
-                margin: 20px;
-                font-size: 24px
+                display: inline-block;
+                background-color: #28a745;
+                color: white;
+                padding: 10px 20px;
+                text-decoration: none;
+                font-size: 16px;
+                border-radius: 4px;
+                margin: 20px 0;
             }
 
             .class_list th,
@@ -169,9 +175,14 @@ $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = $maLop")->fetch_asso
             }
 
             .add_button {
-                margin: 10px;
-
-                font-size: 12px;
+                display: inline-block;
+                background-color: #28a745;
+                color: white;
+                padding: 10px 20px;
+                text-decoration: none;
+                font-size: 16px;
+                border-radius: 4px;
+                margin: 20px 0;
             }
 
             .class_list th,

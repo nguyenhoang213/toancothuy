@@ -75,54 +75,6 @@ if (isset($_POST['acp'])) {
     <title>Thông tin học sinh <?php echo htmlspecialchars($class_info["TenLop"]); ?></title>
     <link rel="stylesheet" href="../assets/css/avatar-student.css">
     <link rel="stylesheet" href="../assets/css/admin-navigation.css">
-    <style>
-        .fixed-button {
-            font-size: 25px;
-            position: fixed;
-            top: 20px;
-            /* Cách đáy 20px */
-            right: 20px;
-            /* Cách phải 20px */
-            background-color: #007bff;
-            /* Màu nền */
-            color: #fff;
-            /* Màu chữ */
-            border: none;
-            border-radius: 50%;
-            /* Bo tròn */
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            /* Hiệu ứng đổ bóng */
-            cursor: pointer;
-            z-index: 1000;
-            /* Luôn hiển thị trên cùng */
-        }
-
-        .fixed-button:hover {
-            background-color: #0056b3;
-            /* Màu khi hover */
-        }
-
-        .submit-btn {
-            background-color: #007fd5;
-            color: white;
-            border-color: #007fd5;
-            cursor: pointer;
-        }
-
-        .submit-btn:hover {
-            background-color: #004ed5;
-            border-color: #004ed5;
-        }
-        .student-div{
-        margin-left: 10px;
-        margin-top: 10px;
-    }
-    </style>
 </head>
 
 <body>
@@ -140,41 +92,47 @@ if (isset($_POST['acp'])) {
 
     <div class="content">
         <h1 style="padding: 30px;">Thông Tin Học Sinh <?php echo htmlspecialchars($class_info["TenLop"]); ?></h1>
-        <form style="margin-bottom: 10px;" action="" method="POST">
-            <label for="Truong">Trường:</label>
-            <select name="Truong" style="padding: 8px; width: 250px; font-size: 16px">
-                <option value="">Tất cả</option>
-                <?php
-                $sql = "
+        <form class="form" style="margin-bottom: 10px;display: flex;justify-content: center;" action="" method="POST">
+            <div class="filter">
+                <label for="Truong">Trường:</label>
+                <select name="Truong">
+                    <option value="">Tất cả</option>
+                    <?php
+                    $sql = "
                     SELECT DISTINCT Truong 
                     FROM hocsinh 
                     JOIN phanlop ON hocsinh.MaHS = phanlop.MaHS 
                     WHERE phanlop.MaLop = '$maLop' AND Truong != '' 
                     ORDER BY Truong ASC
                 ";
-                $result = $conn->query($sql);
-                while ($row = $result->fetch_assoc()) {
-                    $selected = (isset($school) && $school === $row['Truong']) ? "selected" : "";
-                    echo "<option value='" . htmlspecialchars($row['Truong']) . "' $selected>" . htmlspecialchars($row['Truong']) . "</option>";
-                }
-                ?>
-            </select>
+                    $result = $conn->query($sql);
+                    while ($row = $result->fetch_assoc()) {
+                        $selected = (isset($school) && $school === $row['Truong']) ? "selected" : "";
+                        echo "<option value='" . htmlspecialchars($row['Truong']) . "' $selected>" . htmlspecialchars($row['Truong']) . "</option>";
+                    }
+                    ?>
+                </select>
+            </div>
 
-            <label for="sort">Sắp xếp:</label>
-            <select name="sort" style="padding: 8px; width: 250px; font-size: 16px">
-                <option value="ORDER BY Ten, Ho ASC" <?php echo ($sort === "ORDER BY Ten, Ho ASC") ? "selected" : ""; ?>>
-                    Theo Tên</option>
-                <option value="ORDER BY Truong, Lop ASC, Ten, Ho ASC" <?php echo ($sort === "ORDER BY Truong, Lop ASC, Ten, Ho ASC") ? "selected" : ""; ?>>Theo Trường/Lớp</option>
-            </select>
+            <div class="filter">
+                <label for="sort">Sắp xếp:</label>
+                <select name="sort">
+                    <option value="ORDER BY Ten, Ho ASC" <?php echo ($sort === "ORDER BY Ten, Ho ASC") ? "selected" : ""; ?>>
+                        Theo Tên</option>
+                    <option value="ORDER BY Truong, Lop ASC, Ten, Ho ASC" <?php echo ($sort === "ORDER BY Truong, Lop ASC, Ten, Ho ASC") ? "selected" : ""; ?>>Theo Trường/Lớp</option>
+                </select>
+            </div>
 
-            <label for="tinhtrang">Tình trạng:</label>
-            <select name="tinhtrang" style="padding: 8px; width: 250px; font-size: 16px">
-                <option value="1" <?php echo ($tinhtrang === "1") ? "selected" : ""; ?>>Đang học</option>
-                <option value="all" <?php echo ($tinhtrang === "all") ? "selected" : ""; ?>>Tất cả</option>
-                <!-- <option value="2" <?php echo ($tinhtrang === "2") ? "selected" : ""; ?>>Học sinh mới</option> -->
-                <option value="0" <?php echo ($tinhtrang === "0") ? "selected" : ""; ?>>Đã nghỉ</option>
-                <option value="3" <?php echo ($tinhtrang === "3") ? "selected" : ""; ?>>Chưa có ảnh</option>
-            </select>
+            <div class="filter">
+                <label for="tinhtrang">Tình trạng:</label>
+                <select name="tinhtrang">
+                    <option value="1" <?php echo ($tinhtrang === "1") ? "selected" : ""; ?>>Đang học</option>
+                    <option value="all" <?php echo ($tinhtrang === "all") ? "selected" : ""; ?>>Tất cả</option>
+                    <!-- <option value="2" <?php echo ($tinhtrang === "2") ? "selected" : ""; ?>>Học sinh mới</option> -->
+                    <option value="0" <?php echo ($tinhtrang === "0") ? "selected" : ""; ?>>Đã nghỉ</option>
+                    <option value="3" <?php echo ($tinhtrang === "3") ? "selected" : ""; ?>>Chưa có ảnh</option>
+                </select>
+            </div>
             <button type="submit" name="acp" class="submit-btn" style="padding: 8px; font-size: 16px">Chọn</button>
         </form>
 

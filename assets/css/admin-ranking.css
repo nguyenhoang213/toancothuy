@@ -1,100 +1,101 @@
 body {
-    font-family: Arial, sans-serif;
-   margin: 0;
-   padding: 0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 .content {
-   padding: 20px;
-
+  padding: 20px;
 }
 
 h1 {
-   font-size: 28px;
-   text-align: center;
+  font-size: 28px;
+  text-align: center;
 }
 
-form {
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: center;
-   margin-bottom: 20px;
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
+  align-items: center;
 }
 
-form label {
-   font-size: 18px;
+.form label {
+  font-size: 18px;
 }
 
-form select, 
-form input {
-   padding: 8px;
-   font-size: 16px;
+.form select,
+.form input {
+  padding: 8px;
+  font-size: 16px;
 }
 
-form select {
-   width: auto;
+.form select {
+  width: auto;
 }
 
-form input[type="month"] {
-   min-width: 180px;
+.form input[type="month"] {
+  min-width: 180px;
 }
 
 table {
-   width: 100%;
-   max-width: 1000px;
-   margin: 0 auto;
-   border-collapse: collapse;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-collapse: collapse;
 }
 
-table th, 
+table th,
 table td {
-   text-align: center;
-   padding: 10px;
-   border: 1px solid #ddd;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ddd;
 }
 
 table th {
-   background-color: #f2f2f2;
-   color: rgb(0, 0, 0);
+  background-color: #f2f2f2;
+  color: rgb(0, 0, 0);
 }
 
 table tr:nth-child(even) {
-   background-color: #f9f9f9;
+  background-color: #f9f9f9;
 }
 
 table tr:hover {
-   background-color: #f1f1f1;
+  background-color: #f1f1f1;
 }
 
 .tt button {
-   font-family: 'Montserrat', sans-serif;
-   background-color: inherit;
-   border: none;
-   font-size: 18px;
+  font-family: "Montserrat", sans-serif;
+  background-color: inherit;
+  border: none;
+  font-size: 18px;
 }
 
 @media screen and (max-width: 768px) {
-   h1 {
-       font-size: 24px;
-   }
+  h1 {
+    font-size: 24px;
+  }
 
-   form {
-       flex-direction: column;
-       align-items: center;
-   }
+  .form {
+    flex-direction: column;
+    align-items: center;
+  }
 
-   form select, 
-   form input {
-       width: 100%;
-       max-width: 300px;
-   }
+  .form select,
+  .form input {
+    width: 100%;
+    max-width: 300px;
+  }
 
-   table {
-       width: 100%;
-   }
+  table {
+    width: 100%;
+  }
 
-   table th, 
-   table td {
-       font-size: 14px;
-   }
+  table th,
+  table td {
+    font-size: 14px;
+  }
 }

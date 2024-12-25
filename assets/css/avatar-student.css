@@ -1,57 +1,147 @@
-@media screen and (max-width: 600px) {
-    .student {
-        display: inline-block;
-        border-style:solid;
-        border-width: 1px;
-        width:32vw;
-        text-align:center;
-        box-sizing:border-box; 
-        border-collapse: collapse;
-    }
-    
-    .content {
-        padding: 30px;
-    }
-    img {
-        width:30vw;
-        height: auto;
-    }
-    .buttonsdt{
-        font-size: 20px;
-        background-color: inherit;  
-        border: none;  
-    }
-    .student p {
-        font-size: 10px;
-        margin: 10px;
-    }
+.fixed-button {
+  font-size: 25px;
+  position: fixed;
+  top: 20px;
+  /* Cách đáy 20px */
+  right: 20px;
+  /* Cách phải 20px */
+  background-color: #007bff;
+  /* Màu nền */
+  color: #fff;
+  /* Màu chữ */
+  border: none;
+  border-radius: 50%;
+  /* Bo tròn */
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  /* Hiệu ứng đổ bóng */
+  cursor: pointer;
+  z-index: 1000;
+  /* Luôn hiển thị trên cùng */
 }
- 
+
+.fixed-button:hover {
+  background-color: #0056b3;
+  /* Màu khi hover */
+}
+
+.submit-btn {
+  background-color: #007fd5;
+  color: white;
+  border-color: #007fd5;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background-color: #004ed5;
+  border-color: #004ed5;
+}
+
+.student-div {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.filter select {
+  padding: 8px;
+  width: 150px;
+}
+.content .filter {
+  width: 100px ;
+  align-items: center ;
+  display: flex ;
+  justify-content: space-between ;
+}
+.form{
+    display: flex;
+    gap: 10px;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+@media screen and (max-width: 600px) {
+  .student {
+    display: inline-block;
+    border-style: solid;
+    border-width: 1px;
+    width: 32vw;
+    text-align: center;
+    box-sizing: border-box;
+    border-collapse: collapse;
+  }
+
+  .content {
+    padding: 30px;
+  }
+  img {
+    width: 30vw;
+    height: auto;
+  }
+  .buttonsdt {
+    font-size: 20px;
+    background-color: inherit;
+    border: none;
+  }
+  .student p {
+    font-size: 10px;
+    margin: 10px;
+  }
+  .content .filter {
+    display: flex;
+    width: 270px;
+    align-items: center;
+    padding-top: 10px;
+    gap: 10px;
+  }
+  .form{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 @media screen and (min-width: 600px) {
-    .student-div {
-        display: flex;
-        justify-content: start;
-        flex-wrap: wrap;
-    }
-    .student {
-        border-style:solid;
-        width:250px;
-        height:520px;
-        text-align:center;
-        margin: 2px;
-        box-sizing:border-box; 
-        padding-top:10px;
-    }
-    img {
-        width:200px;
-        height:260px;
-    }
-    .buttonsdt{
-        font-size: 20px;
-        background-color: inherit;  
-        border: none;  
-    }
-    .student p {
-        margin: 15px;
-    }
+  .student-div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .student {
+    border-style: solid;
+    width: 250px;
+    height: 520px;
+    text-align: center;
+    margin: 2px;
+    box-sizing: border-box;
+    padding-top: 10px;
+  }
+  img {
+    width: 200px;
+    height: 260px;
+  }
+  .buttonsdt {
+    font-size: 20px;
+    background-color: inherit;
+    border: none;
+  }
+  .student p {
+    margin: 15px;
+  }
+  .content .filter {
+    display: flex;
+    justify-content: end;
+    width: 270px;
+    align-items: center;
+    padding-top: 10px;
+    gap: 10px;
+  }
+  .form{
+    display: flex;
+    flex-direction: row;
+  }
 }

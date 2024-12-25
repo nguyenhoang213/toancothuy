@@ -53,67 +53,69 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="../assets/font/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        table th,
-        table td {
+        .form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .form label {
+            flex: 1 1 100%;
+            font-size: 16px;
+        }
+
+        .form input,
+        .form select,
+        .form button {
+            flex: 1 1 calc(33% - 10px);
             padding: 8px;
-            border: 1px solid #0d0d0d;
+            font-size: 16px;
+            margin: 5px 0;
         }
 
-        table th {
-            background-color: #f2f2f2;
-            font-weight: bold;
-        }
-
-        table tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        table tr:hover {
-            background-color: #f1f1f1;
-        }
-
-        .submit-btn {
+        .form button {
             background-color: #007fd5;
             color: white;
-            border-color: #007fd5;
+            border: none;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
 
-        .submit-btn:hover {
+        .form button:hover {
             background-color: #004ed5;
-            border-color: #004ed5;
         }
 
-
-        @media screen and (min-width: 600px) {
-            .add_button {
-                margin: 20px;
-                font-size: 24px
-            }
-
-            .class_list th,
-            tr,
-            td {
-                font-size: 20px;
-            }
+        .add_button {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 4px;
+            margin: 20px 0;
         }
 
+        /* Mobile View */
         @media screen and (max-width: 600px) {
-            h1 {
-                margin-top: 10px;
-                font-size: 20px
+
+            .form input,
+            .form select,
+            .form button {
+                flex: 1 1 100%;
             }
 
             .add_button {
-                margin: 10px;
-
-                font-size: 12px;
-            }
-
-            .class_list th,
-            tr,
-            td {
-                font-size: 12px;
+                display: inline-block;
+                background-color: #28a745;
+                color: white;
+                padding: 10px 20px;
+                text-decoration: none;
+                font-size: 16px;
+                border-radius: 4px;
+                margin: 20px 0;
             }
         }
     </style>
@@ -126,7 +128,7 @@ $result = $conn->query($sql);
         <a href="../class/add_class.php" class="add_button">Thêm lớp mới</a> <br>
 
         <!-- Tìm kiếm -->
-        <form method="GET" action="" style="margin: 20px 0;">
+        <form class="form" method="GET" action="" style="margin: 20px 0;">
             <label for="">Tìm kiếm</label>
             <input type="text" name="search" placeholder="Nhập tên lớp"
                 value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>"
@@ -149,7 +151,7 @@ $result = $conn->query($sql);
         </form>
 
         <!-- Bảng danh sách các lớp -->
-        <table class="class_list" style="width: 100%; margin-top: 10px">
+        <table class="class_list" style="width: 100%; margin: 10px 0">
             <tr>
                 <th>Mã Lớp</th>
                 <th>Tình Trạng</th>

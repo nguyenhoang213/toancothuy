@@ -48,10 +48,20 @@
     text-align: center; 
     padding: 10px;
   }
+<<<<<<< HEAD
   .footer-fisrt{
     display: flex;
     flex-direction: column;
     margin-left: 38px;
+=======
+  
+  .footer .row{
+  width:80%;
+  margin:1% 0%;
+  padding:0.6% 0%;
+  color:gray;
+  font-size:0.8em;
+>>>>>>> 47fac3c2e85ab7ec986dd5fb7f2657b53fddc4f3
   }
   .footer .row-fisrt{
     display: flex;

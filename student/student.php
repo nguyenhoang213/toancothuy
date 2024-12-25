@@ -213,13 +213,26 @@ if (isset($_GET['MaHS']) && isset($_GET['MaPL'])) {
                         const data = [
                             <?php echo $chart_data ?>
                         ];
-
-                        // Tạo dataset cho hồi quy tuyến tính
                         const regressionData = [
                             <?php foreach ($regression_points as $point) {
                                 echo "{x: " . $point['x'] . ", y: " . $point['y'] . "}, ";
                             } ?>
                         ];
+
+                        // Hàm điều chỉnh kích thước theo màn hình
+                        function getResponsiveSizes() {
+                            const screenWidth = window.innerWidth;
+
+                            if (screenWidth < 768) {
+                                return { fontSize: 10, lineWidth: 1, pointSize: 1 }; // Màn hình nhỏ
+                            } else if (screenWidth < 1024) {
+                                return { fontSize: 12, lineWidth: 2, pointSize: 2 }; // Màn hình trung bình
+                            } else {
+                                return { fontSize: 14, lineWidth: 3, pointSize: 3 }; // Màn hình lớn
+                            }
+                        }
+
+                        const sizes = getResponsiveSizes();
 
                         const ctx = document.getElementById('myChart1').getContext('2d');
                         const myChart = new Chart(ctx, {
@@ -229,22 +242,26 @@ if (isset($_GET['MaHS']) && isset($_GET['MaPL'])) {
                                 datasets: [{
                                     label: 'Điểm Học Sinh',
                                     data: data.map(row => row.Điểm),
-                                    borderColor: 'rgb(54, 162, 235)'
+                                    borderColor: 'rgb(54, 162, 235)',
+                                    borderWidth: sizes.lineWidth, // Độ dày đường
+                                    pointRadius: sizes.pointSize // Kích thước điểm
                                 },
                                 {
                                     label: 'Điểm Trung Bình Lớp',
                                     data: data.map(row => row.ĐiểmTBL),
-                                    borderColor: 'red'
+                                    borderColor: 'red',
+                                    borderWidth: sizes.lineWidth, // Độ dày đường
+                                    pointRadius: sizes.pointSize // Kích thước điểm
                                 },
                                 {
                                     label: 'Hồi Quy Tuyến Tính',
                                     data: regressionData,
                                     borderColor: 'green',
                                     borderDash: [5, 5],
+                                    borderWidth: sizes.lineWidth - 0.5, // Đường hồi quy mỏng hơn
                                     fill: false,
                                     pointRadius: 0
-                                }
-                                ]
+                                }]
                             },
                             options: {
                                 maintainAspectRatio: false,
@@ -259,18 +276,28 @@ if (isset($_GET['MaHS']) && isset($_GET['MaPL'])) {
                                     }
                                 },
                                 plugins: {
-                                    datalabels: { // This code is used to display data values
+                                    datalabels: { // Hiển thị giá trị dữ liệu
                                         anchor: 'end',
                                         align: 'top',
                                         color: 'black',
                                         font: {
                                             weight: 'bold',
-                                            size: 12
+                                            size: sizes.fontSize // Kích thước chữ
                                         },
                                     }
                                 }
                             }
+                        });
 
+                        // Lắng nghe sự kiện resize để cập nhật kích thước
+                        window.addEventListener('resize', () => {
+                            const newSizes = getResponsiveSizes();
+                            myChart.data.datasets.forEach(dataset => {
+                                dataset.borderWidth = newSizes.lineWidth;
+                                dataset.pointRadius = newSizes.pointSize;
+                            });
+                            myChart.options.plugins.datalabels.font.size = newSizes.fontSize;
+                            myChart.update();
                         });
                     </script>
                 </div>

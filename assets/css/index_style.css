@@ -223,6 +223,7 @@
   }
   #content .about h1 {
     font-size: 30px;
+    text-align: center;
   }
   #content .about .info {
     flex-wrap: wrap; 

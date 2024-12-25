@@ -96,7 +96,35 @@ $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = $maLop")->fetch_asso
             background-color: #f1f1f1;
         }
 
+        .formSearch {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+           margin: 20px 0;
+        }
+
+        .formSearch label {
+            flex: 1 1 20%;
+            text-align: center;
+        }
+
+        .formSearch input,
+        .formSearch select,
+        .formSearch button {
+            flex: 1 1 250px;
+            /* Điều chỉnh kích thước tối thiểu */
+            max-width: 100%;
+            /* Đảm bảo không vượt quá chiều rộng màn hình */
+            padding: 8px;
+            font-size: 16px;
+            margin: 5px 0;
+            /* Thêm khoảng cách giữa các phần tử */
+        }
+
         .submit-btn {
+            width: 50px;
             background-color: #007fd5;
             color: white;
             border-color: #007fd5;
@@ -119,10 +147,12 @@ $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = $maLop")->fetch_asso
             td {
                 font-size: 20px;
             }
+
             .content button {
                 display: flex;
-                justify-content: end;
+                justify-content: center;
             }
+
 
         }
 
@@ -131,11 +161,13 @@ $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = $maLop")->fetch_asso
                 margin-top: 10px;
                 font-size: 20px
             }
+
             table {
                 margin-top: 10px;
                 margin-left: -21px;
                 overflow-x: auto;
             }
+
             .add_button {
                 margin: 10px;
 
@@ -147,18 +179,40 @@ $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = $maLop")->fetch_asso
             td {
                 font-size: 12px;
             }
+
             .content button {
                 display: flex;
-                justify-content: end;
+                justify-content: center;
             }
+
+            .formSearch input,
+            .formSearch select,
+            .formSearch button {
+                flex: 1 1 50%;
+                /* Chuyển về chiều rộng 100% trên màn hình nhỏ */
+                margin: 5px 0;
+                /* Thêm khoảng cách giữa các phần tử */
+            }
+
+            .formSearch {
+                flex-direction: column;
+                /* Sắp xếp các phần tử theo cột */
+            }
+
+            .formSearch label {
+                text-align: left;
+                /* Canh trái cho nhãn trên màn hình nhỏ */
+            }
+
+
         }
 
         .fixed-button {
             font-size: 25px;
             position: fixed;
-            top: 20px;
+            top: 48px;
             /* Cách đáy 20px */
-            right: 20px;
+            right: 47px;
             /* Cách phải 20px */
             background-color: #007bff;
             /* Màu nền */
@@ -204,7 +258,7 @@ $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = $maLop")->fetch_asso
         </script>
 
         <!-- Tìm kiếm -->
-        <form method="GET" action="" style="margin: 20px 0;">
+        <form class="formSearch" method="GET" action="">
             <input type="hidden" name="id" value="<?php echo $maLop; ?>">
             <label for="">Tìm kiếm</label>
             <input type="text" name="search" placeholder="Nhập tên học sinh"
@@ -240,7 +294,7 @@ $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = $maLop")->fetch_asso
                 <option value="ORDER BY Truong, Lop ASC, Ten, Ho ASC" <?php echo ($sort === "ORDER BY Truong, Lop ASC, Ten, Ho ASC") ? "selected" : ""; ?>> Sắp xếp theo Trường/Lớp</option>
             </select>
 
-            <button type="submit" class="submit-btn" style="padding: 8px; font-size: 16px">Tìm kiếm</button>
+            <button type="submit" class="submit-btn" style="padding: 9px; font-size: 14px">Tìm kiếm</button>
         </form>
 
         <!-- Bảng danh sách học sinh -->

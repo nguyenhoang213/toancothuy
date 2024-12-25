@@ -118,6 +118,10 @@ if (isset($_POST['acp'])) {
             background-color: #004ed5;
             border-color: #004ed5;
         }
+        .student-div{
+        margin-left: 10px;
+        margin-top: 10px;
+    }
     </style>
 </head>
 
@@ -135,8 +139,8 @@ if (isset($_POST['acp'])) {
     </script>
 
     <div class="content">
-        <h1>Thông Tin Học Sinh <?php echo htmlspecialchars($class_info["TenLop"]); ?></h1>
-        <form action="" method="POST">
+        <h1 style="padding: 30px;">Thông Tin Học Sinh <?php echo htmlspecialchars($class_info["TenLop"]); ?></h1>
+        <form style="margin-bottom: 10px;" action="" method="POST">
             <label for="Truong">Trường:</label>
             <select name="Truong" style="padding: 8px; width: 250px; font-size: 16px">
                 <option value="">Tất cả</option>

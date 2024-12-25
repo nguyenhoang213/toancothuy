@@ -17,6 +17,7 @@
   margin-bottom: 10px;
 }
 
+
 #content .student_info::after {
   bottom: 0;
   background: url(../image/overlay-bottom.png) bottom center no-repeat;

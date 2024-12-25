@@ -8,6 +8,10 @@
         box-sizing:border-box; 
         border-collapse: collapse;
     }
+    
+    .content {
+        padding: 30px;
+    }
     img {
         width:30vw;
         height: auto;

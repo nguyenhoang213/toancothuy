@@ -9,24 +9,29 @@
 <body>
     <footer>
         <div class="footer">
-            <div class="row">
-                <a href="https://www.facebook.com/thuyvytrinhkhue?mibextid=LQQJ4d"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-envelope"></i></a>
-                <a href="#"><i class="fa fa-youtube"></i></a>
-                <a href="#"><i class="fa fa-phone"></i></a>
+            <div class="footer-fisrt">
+                <div class="row-fisrt">
+                    <a href="https://www.facebook.com/thuyvytrinhkhue?mibextid=LQQJ4d"><i
+                            class="fa fa-facebook"></i></a>
+                    <a href="https://www.facebook.com/thuyvytrinhkhue?mibextid=LQQJ4d">Lê Thị Thanh Thủy</a>
+                </div>
+                <div class="row-fisrt">
+                    <a href="#"><i class="fa fa-envelope"></i></a>
+                    <a href="">lethuyntt0708@gmail.com</a>
+                </div>
+                <div class="row-fisrt">
+                    <a href="#"><i class="fa fa-youtube"></i></a>
+                    <a href="">Youtube</a>
+                </div>
+                <div class="row-fisrt">
+                    <a href="#"><i class="fa fa-phone"></i></a>
+                    <a href="">0918 083 884</a>
+                </div>
             </div>
 
             <div class="row">
-                <ul>
-                    <li><a href="https://www.facebook.com/thuyvytrinhkhue?mibextid=LQQJ4d">Lê Thị Thanh Thủy</a></li>
-                    <li><a href="">lethuyntt0708@gmail.com</a></li>
-                    <li><a href="">Youtube</a></li>
-                    <li><a href="">0918 083 884</a></li>
-                </ul>
-            </div>
-
-            <div class="row">
-                <p>Copyright ©<a href="https://www.facebook.com/as.royal03/">Nguyễn Như Hoàng</a>. All Rights Reserved.
+                <p>Copyright ©<a href="https://www.facebook.com/as.royal03/">Nguyễn Như Hoàng</a>. All Rights
+                    Reserved.
                 </p>
                 <p>Desgined by <a href="https://www.facebook.com/as.royal03/">Nguyễn Như Hoàng</a>.</p>
             </div>

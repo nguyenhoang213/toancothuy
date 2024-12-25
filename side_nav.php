@@ -118,7 +118,7 @@
     </div>
 
 
-    <a class="a_navigator" href="../class/class_list.php">
+    <a class="a_navigator" href="../account/list_account.php">
         <button class="dropdown-btn">
             <div class="dropItem"> <i class="fa-solid fa-user-group"></i> Quản lý tài khoản</div>
         </button>

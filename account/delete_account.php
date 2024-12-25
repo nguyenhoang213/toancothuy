@@ -6,7 +6,7 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Lấy dữ liệu từ JSON
     $data = json_decode(file_get_contents("php://input"), true);
-    $maLop = $data['MaLop'];
+    $maAdmin = $data['MaAdmin'];
     $password = $data['password'];
 
     // Mật khẩu admin 
@@ -26,13 +26,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Xóa lớp trong CSDL
-    $stmt = $conn->prepare("DELETE FROM lop WHERE MaLop = ?");
-    $stmt->bind_param("s", $maLop);
+    $stmt = $conn->prepare("DELETE FROM admin WHERE MaAdmin = ?");
+    $stmt->bind_param("s", $maAdmin);
 
     if ($stmt->execute()) {
         echo json_encode(['success' => true]);
     } else {
-        echo json_encode(['success' => false, 'message' => 'Không thể xóa lớp.']);
+        echo json_encode(['success' => false, 'message' => 'Không thể xóa tài khoản.']);
     }
 
     $stmt->close();

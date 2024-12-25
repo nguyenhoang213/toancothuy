@@ -10,56 +10,57 @@ if (!$_SESSION['uname'])
         window.location.href="../index.php";
     </script>';
 
-// Lấy ID lớp học từ URL để xác định lớp cần chỉnh sửa
-if (isset($_GET['MaLop'])) {
-    $maLop = $_GET['MaLop'];
+// Lấy ID tài khoản từ URL để xác định lớp cần chỉnh sửa
+if (isset($_GET['MaAdmin'])) {
+    $maAdmin = $_GET['MaAdmin'];
 
     // Truy vấn lấy thông tin lớp hiện tại từ CSDL
-    $sql = "SELECT * FROM lop WHERE MaLop = '$maLop'";
+    $sql = "SELECT * FROM admin WHERE MaAdmin = '$maAdmin'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         $class = $result->fetch_assoc();
     } else {
         echo '<script>
-        alert("Lớp không tồn tại!");
-        window.location.href="../class/class_list.php";
+        alert("Tài khoản không tồn tại!");
+        window.location.href="../account/list_account.php";
         </script>';
         exit();
     }
 } else {
     echo '<script>
-    alert("Không tìm thấy mã lớp để chỉnh sửa!");
-    window.location.href="../class/class_list.php";
+        alert("Không tìm thấy mã tài khoản để chỉnh sửa!");
+        window.location.href="../account/list_account.php";
     </script>';
     exit();
 }
 
 // Xử lý dữ liệu khi form được gửi để cập nhật lớp
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $tenLop = $_POST['TenLop'];
-    $tinhTrang = $_POST['TinhTrang'];
-    $phanlop = $_POST['PhanLop'];
+    $username = $_POST['UserName'];
+    $ten = $_POST['Ten'];
+    $password = $_POST['PassWord'];
+    $phanquyen = $_POST['PhanQuyen'];
 
-    if (empty($tenLop)) {
-        echo '<script>alert("Tên lớp không được để trống!");</script>';
+    if (empty($ten) || empty($username) || empty($password) || empty($phanquyen)) {
+        echo '<script>alert("Vui lòng điền đầy đủ thông tin!");</script>';
     } else {
-        // Kiểm tra trùng tên lớp (không xét lớp hiện tại)
-        $checkSql = "SELECT * FROM lop WHERE TenLop = '$tenLop' AND MaLop != '$maLop'";
+        // Kiểm tra trùng tên tài khoản
+        $checkSql = "SELECT * FROM admin WHERE UserName = '$username' and MaAdmin != '$maAdmin'";
         $result = $conn->query($checkSql);
 
         if ($result->num_rows > 0) {
             echo '<script>
-            alert("Tên lớp đã tồn tại! Vui lòng chọn tên khác.");
+            alert("Tên tài khoản đã tồn tại! Vui lòng chọn tên khác.");
             window.history.back();
             </script>';
         } else {
             // Cập nhật thông tin lớp trong cơ sở dữ liệu
-            $sql = "UPDATE lop SET TenLop = '$tenLop', TinhTrang = '$tinhTrang', PhanLop = '$phanlop' WHERE MaLop = '$maLop'";
+            $sql = "UPDATE admin SET UserName = '$username', Ten = '$ten', PhanQuyen = '$phanquyen', PassWord = '$password' WHERE MaAdmin = '$maAdmin'";
             if ($conn->query($sql) === TRUE) {
                 echo '<script>
                 alert("Cập nhật lớp thành công!");
-                window.location.href="../class/class_list.php";
+                window.location.href="../account/list_account.php";
                 </script>';
             } else {
                 echo '<script>
@@ -148,33 +149,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form action="" method="POST">
             <!-- Tên Lớp -->
             <div class="form-group">
-                <label for="TenLop">Tên Lớp:</label>
-                <input type="text" id="TenLop" name="TenLop" value="<?php echo htmlspecialchars($class['TenLop']); ?>"
-                    required>
+                <label for="UserName">Username:</label>
+                <input type="text" id="UserName" name="UserName"
+                    value="<?php echo htmlspecialchars($class['UserName']); ?>" required>
             </div>
 
-            <!-- Tình Trạng -->
+            <!-- Tên Người dùng -->
             <div class="form-group">
-                <label for="TinhTrang">Tình Trạng:</label>
-                <select id="TinhTrang" name="TinhTrang">
-                    <option value="1" <?php echo $class['TinhTrang'] == 1 ? 'selected' : ''; ?>>Đang hoạt động</option>
-                    <option value="0" <?php echo $class['TinhTrang'] == 0 ? 'selected' : ''; ?>>Đã dừng</option>
-                </select>
+                <label for="Ten">Tên người dùng:</label>
+                <input type="text" id="Ten" name="Ten" value="<?php echo htmlspecialchars($class['Ten']); ?>" required>
+            </div>
+
+            <!-- Mật khẩu -->
+            <div class="form-group">
+                <label for="PassWord">Mật khẩu:</label>
+                <input type="text" id="PassWord" name="PassWord"
+                    value="<?php echo htmlspecialchars($class['PassWord']); ?>" required>
             </div>
 
             <div class="form-group">
-                <label for="PhanLop">Khu vực:</label>
-                <select id="PhanLop" name="PhanLop">
-                    <option value="0" <?php echo $class['PhanLop'] == 0 ? 'selected' : ''; ?>>Đông Anh</option>
-                    <option value="1" <?php echo $class['PhanLop'] == 1 ? 'selected' : ''; ?>>Cầu Giấy</option>
-                    <option value="2" <?php echo $class['PhanLop'] == 2 ? 'selected' : ''; ?>>Nguyễn Tất Thành
+                <label for="PhanQuyen">Khu vực:</label>
+                <select id="PhanQuyen" name="PhanQuyen">
+                    <option value="Admin" <?php echo $class['PhanQuyen'] == "Admin" ? 'selected' : ''; ?>>Admin</option>
+                    <option value="Super Admin" <?php echo $class['PhanQuyen'] == "Super Admin" ? 'selected' : ''; ?>>
+                        Super Admin
+                    </option>
                     </option>
                 </select>
             </div>
 
             <!-- Nút Cập Nhật -->
-            <button type="submit" class="submit-btn">Cập nhật lớp</button>
-            <a href="../class/class_list.php" class="cancel-btn">Hủy</a>
+            <button type="submit" class="submit-btn">Cập nhật tài khoản</button>
+            <a href="../account/list_account.php" class="cancel-btn">Hủy</a>
         </form>
     </div>
 </body>

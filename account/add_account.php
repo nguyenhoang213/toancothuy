@@ -1,7 +1,6 @@
 <?php
 include("../connection.php"); // Kết nối CSDL
 session_start();
-include("../side_nav.php");
 
 // Kiểm tra xem người dùng đã đăng nhập chưa
 if (!$_SESSION['uname'])
@@ -10,38 +9,44 @@ if (!$_SESSION['uname'])
         window.location.href="../index.php";
     </script>';
 
+include("../side_nav.php"); // Thanh điều hướng
+
 // Xử lý dữ liệu khi form được gửi
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Nhận dữ liệu từ form
-    $tenLop = $_POST['TenLop'];
-    $tinhTrang = $_POST['TinhTrang'];
-    $phanlop = $_POST['PhanLop'];
-    $ngaytao = $Date = date("Y-m-d");
+    $username = $_POST['UserName'];
+    $name = $_POST['Ten'];
+    $password = $_POST['PassWord'];
+    $confirmPassword = $_POST['ConfirmPassWord'];
+    $role = $_POST['PhanQuyen'];
+
     // Kiểm tra xem các trường có rỗng không
-    if (empty($tenLop)) {
-        echo '<script>alert("Tên lớp không được để trống!");</script>';
+    if (empty($username) || empty($name) || empty($password) || empty($confirmPassword)) {
+        echo '<script>alert("Vui lòng điền đầy đủ thông tin!");</script>';
+    } elseif ($password !== $confirmPassword) {
+        echo '<script>alert("Mật khẩu và xác nhận mật khẩu không khớp!");</script>';
     } else {
-        // Kiểm tra tên lớp có trùng không
-        $checkSql = "SELECT * FROM lop WHERE TenLop like '%$tenLop%'";
+        // Kiểm tra tài khoản có trùng không
+        $checkSql = "SELECT * FROM admin WHERE UserName = '$username'";
         $result = $conn->query($checkSql);
 
         if ($result->num_rows > 0) {
-            // Nếu có lớp với tên này tồn tại, hiển thị thông báo lỗi
+            // Nếu tài khoản với tên này tồn tại, hiển thị thông báo lỗi
             echo '<script>
-            alert("Tên lớp đã tồn tại! Vui lòng chọn tên khác.");
+            alert("Tên tài khoản đã tồn tại! Vui lòng chọn tên khác.");
             window.history.back();
             </script>';
         } else {
-            // Nếu tên lớp không trùng, thêm lớp mới
-            $sql = "INSERT INTO lop (TenLop, TinhTrang, NgayTao, PhanLop) VALUES ('$tenLop', '$tinhTrang','$ngaytao','$phanlop')";
+            // Nếu tên tài khoản không trùng, thêm tài khoản mới
+            $sql = "INSERT INTO admin (UserName, Ten, PassWord, PhanQuyen) VALUES ('$username', '$name', '$password', '$role')";
             if ($conn->query($sql) === TRUE) {
                 echo '<script> 
-                alert("Thêm lớp thành công!");
-                window.location.href="../class/class_list.php";
+                alert("Thêm tài khoản thành công!");
+                window.location.href="../account/list_account.php";
                 </script>';
             } else {
                 echo '<script>
-                alert("Lỗi: Không thể thêm lớp do lỗi hệ thống!");
+                alert("Lỗi: Không thể thêm tài khoản do lỗi hệ thống!");
                 </script>';
             }
         }
@@ -57,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thêm Lớp Mới</title>
+    <title>Thêm Tài Khoản Mới</title>
     <link rel="stylesheet" href="../assets/css/admin-navigation.css">
     <link rel="stylesheet" href="../assets/css/admin-statistical.css">
     <style>
@@ -84,6 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         input[type="text"],
+        input[type="password"],
         select {
             font-size: 18px;
             width: 100%;
@@ -122,33 +128,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <div class="content">
-        <h1>Thêm Lớp Mới</h1>
+        <h1>Thêm Tài Khoản Mới</h1>
         <form action="" method="POST">
             <div class="form-group">
-                <label for="TenLop">Tên Lớp:</label>
-                <input type="text" id="TenLop" name="TenLop" required>
+                <label for="UserName">Tên Tài Khoản:</label>
+                <input type="text" id="UserName" name="UserName" required>
             </div>
 
             <div class="form-group">
-                <label for="TinhTrang">Tình Trạng:</label>
-                <select id="TinhTrang" name="TinhTrang">
-                    <option value="1">Đang hoạt động</option>
-                    <option value="0">Đã dừng</option>
-                </select>
+                <label for="Ten">Tên Người Sử Dụng:</label>
+                <input type="text" id="Ten" name="Ten" required>
             </div>
 
             <div class="form-group">
-                <label for="PhanLop">Khu vực:</label>
-                <select id="PhanLop" name="PhanLop">
-                    <option value="0">Đông Anh</option>
-                    <option value="1">Cầu Giấy</option>
-                    <option value="2">Nguyễn Tất Thành</option>
+                <label for="PassWord">Mật Khẩu:</label>
+                <input type="password" id="PassWord" name="PassWord" required>
+            </div>
+
+            <div class="form-group">
+                <label for="ConfirmPassWord">Xác Nhận Mật Khẩu:</label>
+                <input type="password" id="ConfirmPassWord" name="ConfirmPassWord" required>
+            </div>
+
+            <div class="form-group">
+                <label for="PhanQuyen">Phân Quyền:</label>
+                <select id="PhanQuyen" name="PhanQuyen">
+                    <option value="Admin">Admin</option>
+                    <option value="Super Admin">Super Admin</option>
                 </select>
             </div>
 
-
-            <button type="submit" class="submit-btn">Thêm lớp</button>
-            <a href="../class/class_list.php" class="cancel-btn">Hủy</a>
+            <button type="submit" class="submit-btn">Thêm tài khoản</button>
+            <a href="../account/list_account.php" class="cancel-btn">Hủy</a>
         </form>
     </div>
 </body>

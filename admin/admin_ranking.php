@@ -119,7 +119,7 @@ $result = $conn->query($query);
 <body>
 
     <div class="content">
-        <h1>Xếp hạng <?php echo $class_info['TenLop'] ?></h1>
+        <h1 style="padding-top: 20px;">Xếp hạng <?php echo $class_info['TenLop'] ?></h1>
         <form method="GET" style="margin: 15px 0">
             <label for="filter">Lọc theo:</label>
             <input type="hidden" name="id" value="<?php echo $maLop ?>">

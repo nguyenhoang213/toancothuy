@@ -121,7 +121,7 @@ $result = $conn->query($sql);
 
 <body>
     <div class="content">
-        <h1 style="padding-bottom: 10px">Quản lý lớp</h1>
+        <h1 style="padding-bottom: 10px; padding-top: 20px;">Quản lý lớp</h1>
         <!-- Nút thêm lớp mới -->
         <a href="../class/add_class.php" class="add_button">Thêm lớp mới</a> <br>
 

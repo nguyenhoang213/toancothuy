@@ -70,7 +70,7 @@ $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = $maLop")->fetch_asso
 </head>
 
 <body>
-    <div class="content">
+    <div class="content" style="padding-top: 20px;">
         <h1 style="padding-bottom: 10px">Hoạt động học sinh <?php echo htmlspecialchars($class_info['TenLop']); ?></h1>
 
         <?php

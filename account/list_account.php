@@ -124,7 +124,7 @@ $result = $conn->query($sql);
 </head>
 
 <body>
-    <div class="content">
+    <div class="content" style="padding-top: 20px;">
         <h1 style="padding-bottom: 10px">Quản lý tài khoản</h1>
         <!-- Nút thêm tài khoản mới -->
         <a href="../account/add_account.php" class="add_button">Thêm tài khoản mới</a> <br>

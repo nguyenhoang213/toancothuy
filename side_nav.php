@@ -101,22 +101,6 @@
     </a>
 
     <button class="dropdown-btn">
-        <div class="dropItem"><i class="fa-solid fa-house-circle-check"></i> Quản lý BTVN </div>
-        <i class="nav-arrow-down ti-angle-down"></i>
-    </button>
-    <div class="dropdown-container">
-        <form method="GET" action="../homework/homework.php">
-            <?php
-            $sql = "SELECT * FROM lop WHERE TinhTrang = 1 ORDER BY TenLop DESC";
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo '<button type="submit" name="id" value="' . $row["MaLop"] . '"> ' . $row["TenLop"] . ' </button>';
-                }
-            } ?>
-        </form>
-    </div>
-    <button class="dropdown-btn">
         <div class="dropItem"><i class="fa-solid fa-ranking-star"></i> Xếp Hạng </div>
         <i class="nav-arrow-down ti-angle-down"></i>
     </button>
@@ -132,6 +116,16 @@
             } ?>
         </form>
     </div>
+
+
+    <a class="a_navigator" href="../class/class_list.php">
+        <button class="dropdown-btn">
+            <div class="dropItem"> <i class="fa-solid fa-user-group"></i> Quản lý tài khoản</div>
+        </button>
+        <div class="dropdown-container">
+        </div>
+    </a>
+
 
     <button class="dropdown-btn">
         <div class="dropItem"> <i class="fa-solid fa-chart-line"></i> Hoạt động </div>

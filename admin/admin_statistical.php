@@ -46,7 +46,12 @@ $conn->query($update);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-
+    <style>
+        .chart {
+            box-shadow: 10px 10px 8px 10px #888888;
+            padding: 20px 20px 45px 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -85,8 +90,8 @@ $conn->query($update);
                     <canvas id="studentChart"></canvas>
                 </div>
             </div>
-            <div class="chart" style="margin-left: 30px">
-                <div style="width: 300px; height: 300px;">
+            <div style="">
+                <div class="chart" style="width: 300px; height: 400px;">
                     <h2 style="margin-top: 10px">Biểu đồ trạng thái học sinh</h2>
                     <canvas id="statusChart"></canvas>
                 </div>

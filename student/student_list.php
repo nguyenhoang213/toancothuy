@@ -52,7 +52,7 @@ if ($tinhtrang === "all") {
 // Truy vấn dữ liệu học sinh
 $sql = "SELECT hs.MaHS, Ho, Ten, Lop, Truong, NgaySinh, Phone, Anh, pl.MaPhanLop FROM hocsinh hs join phanlop pl ON hs.MaHS = pl.MaHS ";
 if (!empty($search_query)) {
-    $sql .= " AND CONCAT(Ho, ' ', Ten) LIKE '%$search_query%' $where $sort";
+    $sql .= " AND (CONCAT(Ho, ' ', Ten) LIKE '%$search_query%' OR Phone LIKE '%$search_query%') $where $sort";
 } else {
     $sql .= "$where $sort";
 }
@@ -261,7 +261,7 @@ $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = $maLop")->fetch_asso
         <form class="formSearch" method="GET" action="">
             <input type="hidden" name="id" value="<?php echo $maLop; ?>">
             <label for="">Tìm kiếm</label>
-            <input type="text" name="search" placeholder="Nhập tên học sinh"
+            <input type="text" name="search" placeholder="Nhập tên hoặc SĐT học sinh"
                 value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>"
                 style="padding: 8px; width: 250px; font-size: 16px">
             <select name="School" style="padding: 8px; width: 250px; font-size: 16px">

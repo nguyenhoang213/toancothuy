@@ -63,6 +63,30 @@ if ($sort == 0) {
                 border: none;
                 font-family: Times New Roman;
             }
+
+            .statistics-bar {
+                text-align: left;
+                box-shadow: 10px 10px 8px 10px #888888;
+                margin-left: 15px;
+                width: 300px;
+                padding: 30px 0 0 40px;
+                font-size: 22px;
+                color: rgb(0, 0, 0);
+                height: 420px;
+            }
+
+            .statistics-bar>p {
+                margin: 10px;
+            }
+
+            .chart-bar {
+                margin-left: 20px;
+                width: 55vw;
+                box-shadow: 10px 10px 8px 10px #888888;
+                margin-bottom: 50px;
+                height: 450px;
+                padding: 0px 20px 0 10px;
+            }
         }
 
         @media screen and (max-width: 600px) {
@@ -73,6 +97,15 @@ if ($sort == 0) {
                 width: 100% !important;
                 border: none;
                 font-family: Times New Roman;
+            }
+
+            .statistics-bar {
+                display: none;
+            }
+
+            .chart-bar {
+                width: auto;
+                height: 450px;
             }
         }
 
@@ -101,27 +134,27 @@ if ($sort == 0) {
             top: 25px;
             right: 25px;
             background-color: #007bff;
-            /* Màu nền */
             color: #fff;
-            /* Màu chữ */
             border: none;
             border-radius: 50%;
-            /* Bo tròn */
             width: 50px;
             height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            /* Hiệu ứng đổ bóng */
             cursor: pointer;
             z-index: 1000;
-            /* Luôn hiển thị trên cùng */
         }
 
         .fixed-button:hover {
             background-color: #0056b3;
             /* Màu khi hover */
+        }
+
+        .chart-barjs {
+            display: flex;
+            justify-content: center;
         }
     </style>
 </head>
@@ -134,7 +167,7 @@ if ($sort == 0) {
         </h1>
         <h2 style="margin: 10px">Tên bài: <?php echo $lesson_info['TenBai'] . ' - ' . $lesson_info['Ngay'] ?> </h2>
 
-        <form action="../score/score_statistical.php" method="GET" style="margin-bottom: 15px;">
+        <form action="../score/score_statistical.php" method="GET" style="margin: 15px; text-align: left">
             <input type="hidden" name="MaBuoiHoc" value="<?php echo $maBH; ?>">
             <input type="hidden" name="MaLop" value="<?php echo $maLop; ?>">
             <label for="sort" style="margin-right: 10px;">Sắp xếp:</label>
@@ -160,7 +193,7 @@ if ($sort == 0) {
 
         <div class="chart-barjs">
             <!-- Start: Chart-bar -->
-            <div class="chart-bar" style="padding:0px 20px 0 10px">
+            <div class="chart-bar">
                 <canvas id="myChart"></canvas>
             </div>
             <?php
@@ -233,6 +266,7 @@ if ($sort == 0) {
                 });
             </script>
             <!-- Kết thúc: Biểu đồ cột -->
+
             <!-- Start: Statistics-bar -->
             <div class="statistics-bar">
                 <?php

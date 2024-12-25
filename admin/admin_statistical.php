@@ -46,13 +46,18 @@ $conn->query($update);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-    
+    <style>
+        .chart {
+            box-shadow: 10px 10px 8px 10px #888888;
+            padding: 20px 20px 45px 20px;
+        }
+    </style>
 </head>
 
 <body>
-    
+
     <div class="content">
-    <h1 style="padding:  30px 0;">THỐNG KÊ LỚP <?php echo $class_info['TenLop'] ?> </h1>
+        <h1 style="padding:  30px 0;">THỐNG KÊ LỚP <?php echo $class_info['TenLop'] ?> </h1>
         <div class="count">
             <div>
                 <div class="count">
@@ -75,18 +80,18 @@ $conn->query($update);
                             <?php echo " " . $class_count . "</p>" ?>
                     </div>
                 </div>
-                <div class="chart" style="width: 800px; height: 420px;">
+                <div class="chart" style="width: 800px; height: 400px;">
                     <h2 style="margin-top: 10px">Biểu đồ điểm trung bình học sinh theo ngày</h2>
                     <canvas id="avgScoreByDayChart"></canvas>
                 </div>
                 <br>
-                <div class="chart" style="width: 800px; height: 420px;">
+                <div class="chart" style="width: 800px; height: 400px;">
                     <h2 style="margin-top: 10px">Biểu đồ số lượng học sinh theo ngày</h2>
                     <canvas id="studentChart"></canvas>
                 </div>
             </div>
-            <div class="chart" style="margin-left: 30px">
-                <div style="width: 300px; height: 300px;">
+            <div style="">
+                <div class="chart" style="width: 300px; height: 400px;">
                     <h2 style="margin-top: 10px">Biểu đồ trạng thái học sinh</h2>
                     <canvas id="statusChart"></canvas>
                 </div>
@@ -155,15 +160,7 @@ $conn->query($update);
                     options: {
                         responsive: true,
                         plugins: {
-                            datalabels: { // This code is used to display data values
-                                anchor: 'end',
-                                align: 'top',
-                                color: 'black',
-                                font: {
-                                    weight: 'bold',
-                                    size: 12
-                                },
-                            }
+
                         }
                     }
                 });
@@ -258,7 +255,7 @@ $conn->query($update);
     function redirectToScore(maBuoiHoc, maLop) {
         window.location.href = `../score/score_statistical.php?MaBuoiHoc=${maBuoiHoc}&MaLop=${maLop}`;
     }
-    
+
 </script>
 
 </html>

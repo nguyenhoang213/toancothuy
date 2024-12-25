@@ -362,21 +362,22 @@ if (isset($_GET['MaHS']) && isset($_GET['MaPL'])) {
 </body>
 <script>
     function toggleMenu() {
-    const menu = document.getElementById("menu");
-    const logo = document.querySelector(".logo");
-    
-    // Chuyển đổi trạng thái hiển thị của menu
-    if (menu.style.display === "block") {
-        menu.style.display = "none"; // Ẩn menu
-        logo.style.display = "flex"; // Hiện lại logo và tên
-    } else {
-        menu.style.display = "block"; // Hiện menu
-        logo.style.display = "none"; // Ẩn logo và tên
+        const menu = document.getElementById("menu");
+        const logo = document.querySelector(".logo");
+
+        // Chuyển đổi trạng thái hiển thị của menu
+        if (menu.style.display === "block") {
+            menu.style.display = "none"; // Ẩn menu
+            logo.style.display = "flex"; // Hiện lại logo và tên
+        } else {
+            menu.style.display = "block"; // Hiện menu
+            logo.style.display = "none"; // Ẩn logo và tên
+        }
     }
-}
 
 
 </script>
+
 </html>
 
 

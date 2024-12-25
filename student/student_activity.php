@@ -71,7 +71,7 @@ $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = $maLop")->fetch_asso
 
 <body>
     <div class="content" style="padding-top: 20px;">
-        <h1 style="padding-bottom: 10px">Hoạt động học sinh <?php echo htmlspecialchars($class_info['TenLop']); ?></h1>
+        <h1 style="padding: 10px">Hoạt động học sinh <?php echo htmlspecialchars($class_info['TenLop']); ?></h1>
 
         <?php
         if ($result->num_rows > 0) {
@@ -87,7 +87,7 @@ $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = $maLop")->fetch_asso
 
             // Tạo bảng cho từng ngày
             foreach ($activities_by_date as $date => $activities) {
-                echo "<h3>Hoạt động ngày: " . htmlspecialchars($date) . "</h3>";
+                echo "<h3 style='margin: 10px;'>Hoạt động ngày: " . htmlspecialchars($date) . "</h3>";
                 echo "<table style='width: 100%; margin-top: 10px'>";
                 echo "<tr>
                         <th>ID</th>

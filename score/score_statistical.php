@@ -46,7 +46,7 @@ if ($sort == 0) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vật Lý Thầy Phạm Trường Nghiêm</title>
+    <title>Phổ điểm</title>
     <link rel="stylesheet" href="../assets/css/admin-statistical.css">
     <link rel="stylesheet" href="../assets/css/admin-navigation.css">
     <link rel="stylesheet" href="../assets/font/themify-icons/themify-icons.css">

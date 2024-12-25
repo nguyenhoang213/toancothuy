@@ -11,13 +11,14 @@
 
 #header .contact_phone {
   color: white;
-  margin-left: 30px;
+  padding-left: 10px;
+
 }
 
 #header .contact_phone p {
   line-height: 5vh;
   display: inline;
-  margin: 0 5px;
+
 }
 
 #header .network_contact {
@@ -126,7 +127,7 @@
 @media only screen and (max-width: 600px) {
   #header .contact_phone {
     color: white;
-    margin-left: 5px;
+ 
   }
 
   #header .contact_phone p {

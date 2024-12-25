@@ -150,7 +150,7 @@
 
 #content .about {
   text-align: center;
-  padding-top: 12vh;
+
 }
 
 #content .about h1 {
@@ -222,26 +222,15 @@
     width: 60vw;
   }
   #content .about h1 {
-    font-size: 20px;
+    font-size: 30px;
   }
-  #content .about .info h1h1 {
-    display: flex;
-    text-align: center;
+  #content .about .info {
+    flex-wrap: wrap; 
   }
-  #content .about .info img {
-    width: 160px;
-    height: 160px;
-    border: solid;
-    margin: 0 0;
-  }
+
   #content .about .info-text {
-    margin: 0 0 0 10px;
-    text-align: left;
-  }
-  #content .about .info-text p {
-    font-size: 8px;
-    margin: 0;
-    margin-bottom: 5px;
+    width: 100vw; 
+    text-align: left; 
   }
   #content .about .tg {
     display: block;

@@ -140,7 +140,7 @@ $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = $maLop")->fetch_asso
 
 <body>
     <div class="content">
-        <h1 style="padding: 30px">Quản lý bài học <?php echo htmlspecialchars($class_info['TenLop']); ?></h1>
+        <h1 style="padding-top: 30px">Quản lý bài học <?php echo htmlspecialchars($class_info['TenLop']); ?></h1>
         <!-- Nút thêm bài học mới -->
         <a href="../lesson/add_lesson.php?MaLop=<?php echo $maLop; ?>" class="add_button">Thêm bài học mới</a> <br>
 

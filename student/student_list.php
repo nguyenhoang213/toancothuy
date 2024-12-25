@@ -102,7 +102,7 @@ $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = $maLop")->fetch_asso
             gap: 10px;
             justify-content: center;
             align-items: center;
-           margin: 20px 0;
+            margin: 20px 0;
         }
 
         .formSearch label {
@@ -242,7 +242,7 @@ $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = $maLop")->fetch_asso
 
 <body>
     <div class="content">
-        <h1 style="padding: 30px">Quản lý học sinh <?php echo htmlspecialchars($class_info['TenLop']); ?></h1>
+        <h1 style="padding-top: 30px">Quản lý học sinh <?php echo htmlspecialchars($class_info['TenLop']); ?></h1>
         <!-- Nút thêm học sinh mới -->
         <a href="../student/add_student.php?MaLop=<?php echo $maLop; ?>" class="add_button">Thêm học sinh mới</a> <br>
 

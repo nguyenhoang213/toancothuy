@@ -128,7 +128,7 @@ include('connection.php')
             <a href="./index.php">Trang chủ</a>
             <a href="./index.php#content">Tra cứu</a>
             <a href="./login.php">Quản trị</a>
-            <a href="./index.php#footer">Liên hệ</a>
+            <a href="./index.php#footer.php">Liên hệ</a>
         </div>
 
     </div>
@@ -228,7 +228,7 @@ include('connection.php')
 
         </div>
     </div>
-    <div id="footer">
+    <!-- <div id="footer">
         <div class="address">
             <div class="get-in-touch">
                 <div>
@@ -249,23 +249,25 @@ include('connection.php')
             <p>Copyright ©<a href="https://www.facebook.com/as.royal03/">Nguyễn Như Hoàng</a>. All Rights Reserved.</p>
             <p>Desgined by <a href="https://www.facebook.com/as.royal03/">Nguyễn Như Hoàng</a>.</p>
         </div>
-    </div>
-
+    </div> -->
+    <?php
+    include('footer.php')
+        ?>
 </body>
 <script>
     function toggleMenu() {
-    const menu = document.getElementById("menu");
-    const logo = document.querySelector(".logo");
-    
-    // Chuyển đổi trạng thái hiển thị của menu
-    if (menu.style.display === "block") {
-        menu.style.display = "none"; // Ẩn menu
-        logo.style.display = "flex"; // Hiện lại logo và tên
-    } else {
-        menu.style.display = "block"; // Hiện menu
-        logo.style.display = "none"; // Ẩn logo và tên
+        const menu = document.getElementById("menu");
+        const logo = document.querySelector(".logo");
+
+        // Chuyển đổi trạng thái hiển thị của menu
+        if (menu.style.display === "block") {
+            menu.style.display = "none"; // Ẩn menu
+            logo.style.display = "flex"; // Hiện lại logo và tên
+        } else {
+            menu.style.display = "block"; // Hiện menu
+            logo.style.display = "none"; // Ẩn logo và tên
+        }
     }
-}
 
 
 </script>

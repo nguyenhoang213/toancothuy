@@ -1,124 +1,53 @@
-/* footer css */
-#footer .address {
-  padding: 60px;
-  width: 100%;
-  background: black;
-  position: relative;
-  color: white;
-  box-sizing: border-box;
-  padding-bottom: 30px;
-  display: flex;
-  justify-content: center;
-}
-.get-in-touch {
-  display: flex;
-  flex-direction: row;
-gap: 200px;
-
-}
-#footer .address h1 {
-  font-size: 34px;
-}
-
-#footer .address p,
-a {
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-#footer .address .icon {
-  font-size: 16px;
-  margin-left: 30px;
-}
-
-#footer .address::before {
-  top: 0;
-  background: url(../image/overlay-top.png) top center no-repeat;
-  background-size: contain;
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 85px;
-  left: 0;
-  z-index: 1;
-  box-sizing: border-box;
-}
-
-#footer .new-letter {
-}
-
-#footer .new-letter input {
-  font-size: 16px;
-  padding: 2px;
-  width: 20vw;
-}
-
-#footer .new-letter button {
-  font-size: 16px;
-  padding: 2px;
-  background-color: rgb(64, 112, 165);
-  color: white;
-}
-
-#footer .description {
-  border-top: solid;
-  position: relative;
-  display: flex;
-  background-color: rgb(29, 22, 48);
-  justify-content: space-between;
-  padding: 0 60px;
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-#footer .description a {
-  font-size: 16px;
-  color: white;
-}
-
-@media only screen and (max-width: 600px) {
-  #footer .address {
-    width: 100%;
-    background-color: rgb(29, 22, 48);
-    position: relative;
-    color: white;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-around;
+.footer{
+  background:#000;
+  padding:30px 0px;
+  font-family: 'Play', sans-serif;
+  text-align:center;
   }
-  #footer .address .get-in-touch h1 {
-    font-size: 12px;
+  
+  .footer .row{
+  width:100%;
+  margin:1% 0%;
+  padding:0.6% 0%;
+  color:gray;
+  font-size:0.8em;
   }
-  #footer .address .get-in-touch p {
-    font-size: 10px;
+  
+  .footer .row a{
+  text-decoration:none;
+  color:gray;
+  transition:0.5s;
   }
-  #footer .address .icon {
-    font-size: 10px;
-    margin-left: 1px;
+  
+  .footer .row a:hover{
+  color:#fff;
   }
-  #footer .address {
-    padding: 10px;
-    width: 100%;
-    background-color: rgb(29, 22, 48);
-    position: relative;
-    color: white;
-    padding-bottom: 0px;
-    float: left;
+  
+  .footer .row ul{
+  width:100%;
   }
-  #footer .new-letter h1 {
-    font-size: 12px;
+  
+  .footer .row ul li{
+  display:inline-block;
+  margin:0px 30px;
   }
-  #footer .new-letter input {
-    font-size: 10px;
+  
+  .footer .row a i{
+  font-size:2em;
+  margin:0% 1%;
   }
-  #footer .new-letter button {
-    font-size: 10px;
+  
+  @media (max-width:720px){
+  .footer{
+  text-align:left;
+  padding:5%;
   }
-  #footer .description {
-    padding: 0 5px;
+  .footer .row ul li{
+  display:block;
+  margin:10px 0px;
+  text-align:left;
   }
-  #footer .description a,
-  p {
-    font-size: 10px;
+  .footer .row a i{
+  margin:0% 3%;
   }
-}
+  }

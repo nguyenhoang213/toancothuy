@@ -144,29 +144,9 @@ if (isset($_POST['login-button']) || isset($_POST['uname']) || isset($_POST['psw
                 </div>
             </form>
         </div>
-        <div style="margin-top:100px" id="footer">
-            <div class="address">
-                <div class="get-in-touch">
-                    <div>
-                        <h1>Liên hệ</h1>
-                    </div>
-                    <div>
-                        <h1>Lê Thị Thanh Thủy</h1>
-                        <p><i class="ti-map-alt icon"></i> Địa chỉ </p>
-                        <p><i class="ti-headphone-alt icon"></i> 0918 083 884</p>
-                        <p><a href="https://www.facebook.com/thuyvytrinhkhue?mibextid=LQQJ4d"><i
-                                    class="ti-facebook icon"></i></a> Tất cả vì
-                            sự tiến bộ của học trò!</p>
-                        <p><i class="ti-email icon"></i> lethuyntt0708@gmail.com</p>
-                    </div>
-                </div>
-            </div>
-            <div class="description">
-                <p>Copyright ©<a href="https://www.facebook.com/as.royal03/">Nguyễn Như Hoàng</a>. All Rights Reserved.
-                </p>
-                <p>Desgined by <a href="https://www.facebook.com/as.royal03/">Nguyễn Như Hoàng</a>.</p>
-            </div>
-        </div>
+        <?php
+    include('footer.php')
+        ?>
 </body>
 <script>
     function toggleMenu() {

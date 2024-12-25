@@ -1,12 +1,16 @@
+.chart {
+  box-shadow: 10px 10px 8px 10px #888888;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
 .content {
   padding: 20px;
-  box-sizing: border-box;
 }
 
 .count {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 20px;
 }
 
@@ -36,71 +40,23 @@ table tr:hover {
   background-color: #f1f1f1;
 }
 
-.chart {
-  width: 100%;
-  max-width: 800px;
-  margin: auto;
-}
-
-.chart canvas {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-@media screen and (min-width: 768px) {
-  .count {
-    flex-wrap: nowrap;
-    gap: 40px;
-  }
-
-  .chart {
-    max-width: 800px;
-    margin: 20px auto;
-  }
+h1 {
+  padding: 40px 0;
+  text-align: center;
 }
 
 @media screen and (max-width: 768px) {
   h1 {
-    font-size: 20px;
-    text-align: center;
+      font-size: 20px;
+      padding: 40px;
   }
 
   table th,
   table td {
-    font-size: 14px;
+      font-size: 14px;
   }
-  table {
-    margin: 0px -14px;
-  }
+
   .chart {
-    margin: 10px 0;
-  }
-
-  .statistics-bar p {
-    font-size: 18px;
-    margin: 10px 0;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  h1 {
-    font-size: 20px;
-  }
-
-  table th,
-  table td {
-    font-size: 12px;
-    padding: 8px;
-  }
-  table {
-    margin: 0px -14px;
-  }
-  .chart {
-    margin: 10px 0;
-  }
-
-  .statistics-bar p {
-    font-size: 16px;
+      margin: 40px 0;
   }
 }

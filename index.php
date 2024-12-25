@@ -218,10 +218,9 @@ include('connection.php')
                     <p>- Có hơn 20 năm kinh nghiệm luyện thi lớp 5 vào 6 và lớp 12 vào Đại Học.</p>
                     <p>- Dạy học tận tâm cho học sinh từ mất gốc đến nâng cao, ôn thi Đại học.</p>
                     <p>- Áp dụng nhiều công nghệ thông tin trong dạy học.</p>
-                    <p>- Tất cả các dạng toán và lý thuyết được cô tóm gọn trong số tay Toán học.</p>
+                    <p>- Tất cả các dạng toán và lý thuyết được cô tóm gọn trong sổ tay Toán học.</p>
                     <p>- Đạt giải nhất cuộc thi GVG môn toán cụm Thanh Xuân- Cầu Giấy</p>
-                    <p>- Hằng năm có rất nhiều học sinh dồ các trường TOP như: <br>1. THCS & THPT Nguyễn Tất
-                        Thành,Chuyên Ngữ, Cầu Giấy, Lương Thế Vinh,... <br> 2. Đại học: KTQD, Bách Khoa, Luật Hà Nội,...
+                    <p>- Hằng năm có rất nhiều học sinh đổ các trường TOP như: <br>1. THCS & THPT Nguyễn Tất Thành, Chuyên Ngữ, Cầu Giấy, Lương Thế Vinh,... <br> 2. Đại học: KTQD, Bách Khoa, Luật Hà Nội,...
                     </p>
                 </div>
             </div>

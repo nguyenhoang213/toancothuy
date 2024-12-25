@@ -80,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chỉnh sửa Lớp</title>
+    <title>Chỉnh sửa tài khoản</title>
     <link rel="stylesheet" href="../assets/css/admin-navigation.css">
     <link rel="stylesheet" href="../assets/css/admin-statistical.css">
     <style>
@@ -88,6 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             .content {
                 margin-left: 240px;
                 width: 80%;
+                padding: 40px;
             }
         }
 
@@ -95,6 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             .content {
                 margin-left: 15px;
                 width: 90%;
+                padding: 40px;
             }
         }
 
@@ -145,7 +147,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <div class="content">
-        <h1>Chỉnh sửa Lớp</h1>
+        <h1>Chỉnh sửa tài khoản</h1>
         <form action="" method="POST">
             <!-- Tên Lớp -->
             <div class="form-group">

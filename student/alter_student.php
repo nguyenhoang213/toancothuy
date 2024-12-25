@@ -106,6 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       .content {
         margin-left: 240px;
         width: 80%;
+        padding: 40px;
       }
     }
 
@@ -113,6 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       .content {
         margin-left: 15px;
         width: 90%;
+        padding: 40px;
       }
     }
 
@@ -173,17 +175,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" id="Ho" name="Ho" value="<?php echo htmlspecialchars($student['Ho']); ?>" required>
       </div>
 
-      <!-- Số Điện Thoại -->
-      <div class="form-group">
-        <label for="Phone">Số Điện Thoại:</label>
-        <input type="text" id="Phone" name="Phone" value="<?php echo htmlspecialchars($student['Phone']); ?>" required>
-      </div>
-
-
       <!-- Tên -->
       <div class="form-group">
         <label for="Ten">Tên:</label>
         <input type="text" id="Ten" name="Ten" value="<?php echo htmlspecialchars($student['Ten']); ?>" required>
+      </div>
+      <!-- Số Điện Thoại -->
+      <div class="form-group">
+        <label for="Phone">Số Điện Thoại:</label>
+        <input type="text" id="Phone" name="Phone" value="<?php echo htmlspecialchars($student['Phone']); ?>" required>
       </div>
 
       <!-- Lớp -->

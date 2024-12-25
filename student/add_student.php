@@ -110,6 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       .content {
         margin-left: 240px;
         width: 80%;
+        padding: 40px;
       }
     }
 
@@ -117,6 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       .content {
         margin-left: 15px;
         width: 90%;
+        padding: 40px;
       }
     }
 

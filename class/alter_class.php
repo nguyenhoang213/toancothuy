@@ -85,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <style>
         @media screen and (min-width: 600px) {
             .content {
-                margin-left: 240px;
+                margin-left: 250px;
                 width: 80%;
                 padding: 40px;
             }
@@ -97,6 +97,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 width: 90%;
                 padding: 40px;
             }
+        }
+
+        .content{
+            text-align: left;
         }
 
         .form-group {
@@ -167,16 +171,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="form-group">
                 <label for="PhanLop">Khu vực:</label>
                 <select id="PhanLop" name="PhanLop">
-                    <option value="0" <?php echo $class['PhanLop'] == 0 ? 'selected' : ''; ?>>Đông Anh</option>
-                    <option value="1" <?php echo $class['PhanLop'] == 1 ? 'selected' : ''; ?>>Cầu Giấy</option>
-                    <option value="2" <?php echo $class['PhanLop'] == 2 ? 'selected' : ''; ?>>Nguyễn Tất Thành
+                    <option value="1" <?php echo $class['PhanLop'] == 2 ? 'selected' : ''; ?>>Nguyễn Tất Thành
+                    </option>
+                    <option value="2" <?php echo $class['PhanLop'] == 2 ? 'selected' : ''; ?>>An Bình
                     </option>
                 </select>
             </div>
 
             <!-- Nút Cập Nhật -->
-            <button type="submit" class="submit-btn">Cập nhật lớp</button>
-            <a href="../class/class_list.php" class="cancel-btn">Hủy</a>
+            <div style="text-align: center">
+                <button type="submit" class="submit-btn">Cập nhật lớp</button>
+                <a href="../class/class_list.php" class="cancel-btn">Hủy</a>
+            </div>
         </form>
     </div>
 </body>

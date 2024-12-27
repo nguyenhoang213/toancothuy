@@ -158,7 +158,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <div class="form-group">
-                <label for="DapAn">Đáp Án:</label>
+                <label for="DapAn">Đáp Án (link):</label>
                 <input type="text" id="DapAn" name="DapAn" value="<?php echo htmlspecialchars($lesson['DapAn']); ?>">
             </div>
 

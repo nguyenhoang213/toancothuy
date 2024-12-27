@@ -86,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <style>
         @media screen and (min-width: 600px) {
             .content {
-                margin-left: 240px;
+                margin-left: 250px;
                 width: 80%;
                 padding: 40px;
             }
@@ -98,6 +98,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 width: 90%;
                 padding: 40px;
             }
+        }
+
+        .content {
+            text-align: left;
         }
 
         .form-group {
@@ -170,7 +174,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <div class="form-group">
-                <label for="PhanQuyen">Khu vực:</label>
+                <label for="PhanQuyen">Phân quyền:</label>
                 <select id="PhanQuyen" name="PhanQuyen">
                     <option value="Admin" <?php echo $class['PhanQuyen'] == "Admin" ? 'selected' : ''; ?>>Admin</option>
                     <option value="Super Admin" <?php echo $class['PhanQuyen'] == "Super Admin" ? 'selected' : ''; ?>>
@@ -180,9 +184,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </select>
             </div>
 
-            <!-- Nút Cập Nhật -->
-            <button type="submit" class="submit-btn">Cập nhật tài khoản</button>
-            <a href="../account/list_account.php" class="cancel-btn">Hủy</a>
+            <div style="text-align: center">
+                <!-- Nút Cập Nhật -->
+                <button type="submit" class="submit-btn">Cập nhật tài khoản</button>
+                <a href="../account/list_account.php" class="cancel-btn">Hủy</a>
+            </div>
         </form>
     </div>
 </body>

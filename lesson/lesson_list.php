@@ -20,10 +20,10 @@ if ($maLop <= 0) {
     exit;
 }
 
-// Tìm kiếm bài học trong lớp
+// Tìm kiếm buổi học trong lớp
 $search_query = isset($_GET['search']) ? trim($_GET['search']) : '';
 
-// Truy vấn dữ liệu bài học
+// Truy vấn dữ liệu buổi học
 $sql = "SELECT bh.MaBuoiHoc, MaLop, Ngay, TenBai, DapAn FROM buoihoc bh WHERE bh.MaLop = $maLop";
 if (!empty($search_query)) {
     $sql .= " AND TenBai LIKE '%$search_query%'";
@@ -44,7 +44,7 @@ $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = $maLop")->fetch_asso
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản lý bài học <?php echo htmlspecialchars($class_info['TenLop']); ?></title>
+    <title>Quản lý buổi học <?php echo htmlspecialchars($class_info['TenLop']); ?></title>
     <link rel="stylesheet" href="../assets/css/admin-statistical.css">
     <link rel="stylesheet" href="../assets/css/admin-navigation.css">
     <link rel="stylesheet" href="../assets/font/themify-icons/themify-icons.css">
@@ -151,25 +151,25 @@ $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = $maLop")->fetch_asso
 
 <body>
     <div class="content">
-        <h1 style="padding-top: 30px">Quản lý bài học <?php echo htmlspecialchars($class_info['TenLop']); ?></h1>
-        <!-- Nút thêm bài học mới -->
-        <a href="../lesson/add_lesson.php?MaLop=<?php echo $maLop; ?>" class="add_button">Thêm bài học mới</a> <br>
+        <h1 style="padding-top: 30px">Quản lý buổi học <?php echo htmlspecialchars($class_info['TenLop']); ?></h1>
+        <!-- Nút thêm buổi học mới -->
+        <a href="../lesson/add_lesson.php?MaLop=<?php echo $maLop; ?>" class="add_button">Thêm buổi học mới</a> <br>
 
         <!-- Tìm kiếm -->
         <form method="GET" action="" style="margin: 20px 0;">
             <input type="hidden" name="id" value="<?php echo $maLop; ?>">
             <label for="">Tìm kiếm</label>
-            <input type="text" name="search" placeholder="Nhập tên bài học"
+            <input type="text" name="search" placeholder="Nhập tên buổi học"
                 value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>"
                 style="padding: 8px; width: 250px; font-size: 16px">
             <button type="submit" class="submit-btn" style="padding: 8px; font-size: 16px">Tìm kiếm</button>
         </form>
 
-        <!-- Bảng danh sách bài học -->
+        <!-- Bảng danh sách buổi học -->
         <table class="lesson_list" style="width: 100%; margin-top: 10px">
             <tr>
                 <th>Mã Buổi Học</th>
-                <th>Tên Bài Học</th>
+                <th>Tên buổi học</th>
                 <th>Ngày </th>
                 <th>Đáp án</th>
                 <th>Chỉnh sửa</th>
@@ -177,7 +177,7 @@ $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = $maLop")->fetch_asso
             </tr>
 
             <?php
-            // Kiểm tra xem có dữ liệu bài học nào không
+            // Kiểm tra xem có dữ liệu buổi học nào không
             if ($result->num_rows > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo '<tr>';
@@ -189,15 +189,15 @@ $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = $maLop")->fetch_asso
                     } else {
                         echo '<td> Chưa có đáp án </td>';
                     }
-                    // Tùy chọn chỉnh sửa bài học
+                    // Tùy chọn chỉnh sửa buổi học
                     echo "<td><a href='../lesson/alter_lesson.php?MaBuoiHoc=" . $row['MaBuoiHoc'] . "&MaLop=" . $maLop . "'>Chỉnh sửa</a></td>";
 
-                    // Tùy chọn xóa bài học
+                    // Tùy chọn xóa buổi học
                     echo "<td><a href='#' onclick=\"confirmDelete('" . $row['MaBuoiHoc'] . "'); return false;\">Xóa</a></td>";
                     echo '</tr>';
                 }
             } else {
-                echo '<tr><td colspan="7">Không có bài học nào</td></tr>';
+                echo '<tr><td colspan="7">Không có buổi học nào</td></tr>';
             }
             ?>
 
@@ -214,8 +214,8 @@ $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = $maLop")->fetch_asso
     <!-- Script để xác nhận trước khi xóa -->
     <script>
         function confirmDelete(maBuoiHoc) {
-            if (confirm("Bạn muốn xóa bài học khỏi hệ thống?")) {
-                const adminPassword = prompt("Vui lòng nhập mật khẩu admin để xóa bài học:");
+            if (confirm("Bạn muốn xóa buổi học khỏi hệ thống?")) {
+                const adminPassword = prompt("Vui lòng nhập mật khẩu admin để xóa buổi học:");
                 if (adminPassword !== null) {
                     fetch('../lesson/delete_lesson.php', {
                         method: 'POST',
@@ -225,7 +225,7 @@ $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = $maLop")->fetch_asso
                         .then(response => response.json())
                         .then(data => {
                             if (data.success) {
-                                alert("Bài học đã được xóa thành công!");
+                                alert("buổi học đã được xóa thành công!");
                                 location.reload();
                             } else {
                                 alert(data.message || "Mật khẩu không đúng hoặc có lỗi xảy ra.");

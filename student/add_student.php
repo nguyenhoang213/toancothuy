@@ -21,11 +21,10 @@ if (isset($_GET['MaLop'])) {
     </script>';
 }
 
-// Xử lý dữ liệu khi form được gửi
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Nhận dữ liệu từ form
-  $ho = trim($_POST['Ho']);
-  $ten = trim($_POST['Ten']);
+$ho = preg_replace('/\s+/', ' ', trim($_POST['Ho']));
+$ten = preg_replace('/\s+/', ' ', trim($_POST['Ten']));
   $lop = $_POST['Lop'];
   $truong = $_POST['Truong'];
   $ngaySinh = $_POST['NgaySinh'];
@@ -40,38 +39,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $checkSDT = "SELECT * FROM hocsinh WHERE Phone = '$phone'";
     $result = $conn->query($checkSDT);
 
-    // Nếu đã tồn tại SĐT
     if ($result->num_rows > 0) {
-      //Kiểm tra có trong lớp hay chưa
+      // Kiểm tra có trong lớp hay chưa
       $checkClass = "SELECT * FROM hocsinh hs JOIN phanlop pl ON hs.MaHS = pl.MaHS WHERE MaLop = '$maLop' and Phone = '$phone'";
       $resultClass = $conn->query($checkClass);
 
-      // Nếu đã tồn tại SĐT trong lớp
       if ($resultClass->num_rows > 0) {
         $row = $resultClass->fetch_assoc();
         echo '<script>alert("SĐT này đã được dùng bởi học sinh ' . $row['Ho'] . ' ' . $row['Ten'] . ' - ' . $row['Lop'] . ' - ' . $row['Truong'] . '!");</script>';
-      }
-
-      // Nếu chưa tồn tại SĐT trong lớp 
-      else {
+      } else {
         $row = $result->fetch_assoc();
         echo '<script>
           if(confirm("SĐT này đã được dùng bởi học sinh ' . $row['Ho'] . ' ' . $row['Ten'] . ' - ' . $row['Lop'] . ' - ' . $row['Truong'] . '! Bạn có muốn thêm học sinh này vào lớp ' . $class_info['TenLop'] . '")) {
             window.location.href = "add_to_class.php?MaHS=' . $row['MaHS'] . '&MaLop=' . $class_info['MaLop'] . '";
           } else {
             alert("Đã hủy thao tác thêm học sinh");
-        }
+          }
         </script>';
       }
-    }
-
-    // SĐT chưa tồn tại 
-    else {
+    } else {
       if (!empty($anh)) {
         $target_dir = "../assets/image/anhhs/";
-        $target_file = $target_dir . basename($anh);
-        move_uploaded_file($_FILES['Anh']['tmp_name'], $target_file);
+        $file_extension = pathinfo($anh, PATHINFO_EXTENSION);
+        $new_file_name = $maHS . '.' . $file_extension;
+        $target_file = $target_dir . $new_file_name;
+
+        if (move_uploaded_file($_FILES['Anh']['tmp_name'], $target_file)) {
+          $anh = $new_file_name;
+        } else {
+          echo '<script>alert("Lỗi khi tải lên file ảnh!");</script>';
+          $anh = '';
+        }
       }
+
       // Cập nhật thông tin học sinh trong cơ sở dữ liệu
       $sqlhs = "INSERT INTO hocsinh(Ho, Ten, Lop, Truong, NgaySinh, Phone, Anh) VALUES ('$ho','$ten','$lop','$truong','$ngaySinh','$phone','$anh')";
       if ($conn->query($sqlhs)) {
@@ -108,7 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <style>
     @media screen and (min-width: 600px) {
       .content {
-        margin-left: 240px;
+        margin-left: 250px;
         width: 80%;
         padding: 40px;
       }
@@ -120,6 +120,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         width: 90%;
         padding: 40px;
       }
+    }
+    
+    .content{
+        text-align: left;
     }
 
     .form-group {
@@ -178,7 +182,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" id="Phone" name="Phone" required>
 
         <label for="TenLop">Họ:</label>
-        <input type="text" id="Ho" name="Ho" required>
+        <input type="text" id="Ho" name="Ho">
 
         <label for="TenLop">Tên:</label>
         <input type="text" id="Ten" name="Ten" required>
@@ -196,8 +200,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="file" id="Anh" name="Anh" accept="image/*">
       </div>
 
-      <button type="submit" class="submit-btn">Thêm học sinh</button>
-      <a href="../student/student_list.php?id=<?php echo $maLop ?>" class="cancel-btn">Hủy</a>
+      <div style="text-align: center">
+          <button type="submit" class="submit-btn">Thêm học sinh</button>
+          <a href="../student/student_list.php?id=<?php echo $maLop ?>" class="cancel-btn">Hủy</a>
+          </div>
     </form>
   </div>
 </body>

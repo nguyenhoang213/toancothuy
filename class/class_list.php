@@ -136,8 +136,6 @@ $result = $conn->query($sql);
 
             <select name="phanlop" style="padding: 8px; width: 250px; font-size: 16px">
                 <option value="" <?php echo $phanlop === '' ? 'selected' : ''; ?>>Tất cả khu vực</option>
-                <option value="0" <?php echo $phanlop === '0' ? 'selected' : ''; ?>>Đông Anh</option>
-                <option value="1" <?php echo $phanlop === '1' ? 'selected' : ''; ?>>Cầu Giấy</option>
                 <option value="2" <?php echo $phanlop === '2' ? 'selected' : ''; ?>>Nguyễn Tất Thành</option>
             </select>
 
@@ -154,10 +152,10 @@ $result = $conn->query($sql);
         <table class="class_list" style="width: 100%; margin: 10px 0">
             <tr>
                 <th>Mã Lớp</th>
-                <th>Tình Trạng</th>
+                <th>Tên Lớp</th>
                 <th>Ngày Tạo</th>
                 <th>Khu vực</th>
-                <th>Tên Lớp</th>
+                <th>Tình Trạng</th>
                 <th>Chỉnh sửa</th>
                 <th>Xóa</th>
             </tr>
@@ -180,9 +178,9 @@ $result = $conn->query($sql);
                     if ($row['PhanLop'] == 0) {
                         echo '<td> Đông Anh </td>';
                     } else if ($row['PhanLop'] == 1) {
-                        echo '<td> Cầu Giấy </td>';
-                    } else if ($row['PhanLop'] == 2) {
                         echo '<td> Nguyễn Tất Thành </td>';
+                    } else if ($row['PhanLop'] == 2) {
+                        echo '<td> An Bình </td>';
                     } else {
                         echo '<td> Không xác định </td>';
                     }
@@ -198,13 +196,18 @@ $result = $conn->query($sql);
                     // Tùy chọn chỉnh sửa lớp
                     echo "<td><a href='../class/alter_class.php?MaLop=" . $row['MaLop'] . "'>Chỉnh sửa</a></td>";
 
-                    // Tùy chọn xóa lớp
-                    echo "<td><a href='#' onclick=\"confirmDelete('" . $row['MaLop'] . "'); return false;\">Xóa</a></td>";
+                    $username = $_SESSION['uname'];
+                    $Admin_info = $conn->query("SELECT * FROM admin WHERE UserName = '$username'")->fetch_assoc();
+                    if ($Admin_info['PhanQuyen'] == "Super Admin") {
+                        echo "<td><a href='#' onclick=\"confirmDelete('" . $row['MaLop'] . "'); return false;\">Xóa</a></td>";
+                    } else {
+                        echo "<td><a href='#' onclick='cantDelete()'>Xóa</a></td>";
+                    }
 
                     echo '</tr>';
                 }
             } else {
-                echo '<tr><td colspan="5">Không có lớp nào</td></tr>';
+                echo '<tr><td colspan="7">Không có lớp nào</td></tr>';
             }
             ?>
 
@@ -215,6 +218,10 @@ $result = $conn->query($sql);
     <script>
         function confirmDelete() {
             return confirm("Bạn có chắc chắn muốn xóa lớp này?");
+        }
+        
+        function cantDelete() {
+            alert("Bạn không đủ quyền thực hiện chức năng này!");
         }
     </script>
 </body>

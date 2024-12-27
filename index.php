@@ -8,7 +8,7 @@ include('connection.php')
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/assets/image/logo.png">
+    <link rel="icon" type="image/x-icon" href="./assets/image/logoTH.jpg">
     <title>Tra cứu điểm cô Lê Thanh Thủy</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/index_style.css">
@@ -220,7 +220,8 @@ include('connection.php')
                     <p>- Áp dụng nhiều công nghệ thông tin trong dạy học.</p>
                     <p>- Tất cả các dạng toán và lý thuyết được cô tóm gọn trong sổ tay Toán học.</p>
                     <p>- Đạt giải nhất cuộc thi GVG môn toán cụm Thanh Xuân- Cầu Giấy</p>
-                    <p>- Hằng năm có rất nhiều học sinh đổ các trường TOP như: <br>1. THCS & THPT Nguyễn Tất Thành, Chuyên Ngữ, Cầu Giấy, Lương Thế Vinh,... <br> 2. Đại học: KTQD, Bách Khoa, Luật Hà Nội,...
+                    <p>- Hằng năm có rất nhiều học sinh đổ các trường TOP như: <br>1. THCS & THPT Nguyễn Tất Thành,
+                        Chuyên Ngữ, Cầu Giấy, Lương Thế Vinh,... <br> 2. Đại học: KTQD, Bách Khoa, Luật Hà Nội,...
                     </p>
                 </div>
             </div>

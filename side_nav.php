@@ -1,5 +1,5 @@
 <!-- Start: Side-navigation -->
-<link rel="icon" type="image/x-icon" href="/assets/image/logo.png">
+<link rel="icon" type="image/x-icon" href="../assets/image/logoTH.jpg">
 <link rel="stylesheet" href="../assets/css/admin-style.css">
 <link rel="stylesheet" href="../assets/css/style.css">
 <link rel="stylesheet" href="../assets/css/admin-navigation.css">

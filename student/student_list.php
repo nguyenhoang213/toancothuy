@@ -23,10 +23,9 @@ if ($maLop <= 0) {
 // Tìm kiếm học sinh trong lớp
 $search_query = isset($_GET['search']) ? trim($_GET['search']) : '';
 $where = "WHERE pl.MaLop = '$maLop'";
-$sort = "ORDER BY Ten, Ho ASC"; // Mặc định sắp xếp
 $tinhtrang = "1";
 
-$sort = $_GET['sort'] ?? "";
+$sort = $_GET['sort'] ?? "ORDER BY Ten, Ho ASC";
 $school = $_GET['School'] ?? "";
 $tinhtrang = $_GET['tinhtrang'] ?? "";
 
@@ -51,17 +50,21 @@ if ($tinhtrang === "all") {
 
 // Truy vấn dữ liệu học sinh
 $sql = "SELECT hs.MaHS, Ho, Ten, Lop, Truong, NgaySinh, Phone, Anh, pl.MaPhanLop FROM hocsinh hs join phanlop pl ON hs.MaHS = pl.MaHS ";
+
 if (!empty($search_query)) {
     $sql .= " AND (CONCAT(Ho, ' ', Ten) LIKE '%$search_query%' OR Phone LIKE '%$search_query%') $where $sort";
 } else {
     $sql .= "$where $sort";
 }
 
+
 $result = $conn->query($sql);
 
 // Lấy thông tin lớp học
 $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = $maLop")->fetch_assoc();
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -297,6 +300,7 @@ $class_info = $conn->query("SELECT * FROM lop WHERE MaLop = $maLop")->fetch_asso
                 <option value="" <?php echo $tinhtrang === '' ? 'selected' : ''; ?>>Tất cả tình trạng</option>
                 <option value="1" <?php echo $tinhtrang === '1' ? 'selected' : ''; ?>>Đang học</option>
                 <option value="0" <?php echo $tinhtrang === '0' ? 'selected' : ''; ?>>Đã nghỉ</option>
+                <option value="3" <?php echo $tinhtrang === '3' ? 'selected' : ''; ?>>Chưa có ảnh</option>
             </select>
 
             <select name="sort" style="padding: 8px; width: 250px; font-size: 16px">

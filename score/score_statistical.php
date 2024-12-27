@@ -52,7 +52,7 @@ if ($sort == 0) {
     <link rel="stylesheet" href="../assets/font/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" type="image/x-icon" href="../assets/image/logo.png">
-    <script src="/assets/table2excel.js"></script>
+    <script src="../assets/table2excel.js"></script>
     <style>
         @media screen and (min-width: 600px) {
             #iScore {
@@ -411,7 +411,7 @@ if ($sort == 0) {
                             .then(response => response.json())
                             .then(data => {
                                 if (data.success) {
-                                    alert("Điểm đã được cập nhật!");
+                                    // alert("Điểm đã được cập nhật!");
                                     // Cập nhật thứ hạng
                                     row.querySelector(".rank-cell").textContent = data.newRank || "Không";
                                 } else {
@@ -430,7 +430,7 @@ if ($sort == 0) {
 
         <!-- End: Student-list -->
         <table class="student-list" data-excel-name="Danh sách học sinh không có điểm">
-            <h1>DANH SÁCH HỌC SINH NGHỈ HỌC</h1>
+            <h1>DANH SÁCH HỌC SINH KHÔNG CÓ ĐIỂM</h1>
             <tr>
                 <td>SĐT</td>
                 <td>Họ Tên</td>

@@ -133,7 +133,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="TenBai">Tên Bài:</label>
                 <input type="text" id="TenBai" name="TenBai" required>
 
-                <label for="DapAn">Đáp Án:</label>
+                <label for="DapAn">Đáp Án (link):</label>
                 <textarea id="DapAn" name="DapAn" rows="4"></textarea>
             </div>
 

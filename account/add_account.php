@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         @media screen and (min-width: 600px) {
             .content {
-                margin-left: 240px;
+                margin-left: 250px;
                 width: 80%;
 
             }
@@ -83,6 +83,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 margin-left: 15px;
                 width: 90%;
             }
+        }
+
+        .content {
+            text-align: left;
         }
 
         .form-group {
@@ -137,22 +141,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form action="" method="POST">
             <div class="form-group">
                 <label for="UserName">Tên Tài Khoản:</label>
-                <input type="text" id="UserName" name="UserName" required>
+                <input type="text" autocomplete="off" id="UserName" name="UserName"  required>
             </div>
 
             <div class="form-group">
                 <label for="Ten">Tên Người Sử Dụng:</label>
-                <input type="text" id="Ten" name="Ten" required>
+                <input type="text"  autocomplete="off" id="Ten" name="Ten" required>
             </div>
 
             <div class="form-group">
                 <label for="PassWord">Mật Khẩu:</label>
-                <input type="password" id="PassWord" name="PassWord" required>
+                <input type="password" autocomplete="off" id="PassWord" name="PassWord"  required>
             </div>
 
             <div class="form-group">
                 <label for="ConfirmPassWord">Xác Nhận Mật Khẩu:</label>
-                <input type="password" id="ConfirmPassWord" name="ConfirmPassWord" required>
+                <input type="password" autocomplete="off" id="ConfirmPassWord"  name="ConfirmPassWord" required>
             </div>
 
             <div class="form-group">
@@ -163,8 +167,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </select>
             </div>
 
-            <button type="submit" class="submit-btn">Thêm tài khoản</button>
-            <a href="../account/list_account.php" class="cancel-btn">Hủy</a>
+            <div style="text-align: center">
+                <button type="submit" class="submit-btn">Thêm tài khoản</button>
+                <a href="../account/list_account.php" class="cancel-btn">Hủy</a>
+            </div>
         </form>
     </div>
 </body>

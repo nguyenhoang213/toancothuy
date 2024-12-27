@@ -156,7 +156,7 @@ if (isset($_POST['acp'])) {
         echo '<div class="student-div">';
         while ($row = $result->fetch_assoc()) {
             echo '<div class="student" onclick="redirectToStudent(\'' . $row['MaHS'] . '\', \'' . $row['MaPhanLop'] . '\')">';
-            $avatar = $row['Anh'] ? "/assets/image/anhhs/" . htmlspecialchars($row['Anh']) : "/assets/image/anhhs/avt.png";
+            $avatar = $row['Anh'] ? "../assets/image/anhhs/" . htmlspecialchars($row['Anh']) : "../assets/image/anhhs/avt.png";
             echo '<img src="' . $avatar . '">';
             echo "<p>" . htmlspecialchars($row['Ho']) . " " . htmlspecialchars($row['Ten']) . "</p>";
             echo "<p>" . htmlspecialchars($row['Phone']) . "</p>";

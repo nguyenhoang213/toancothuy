@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <style>
         @media screen and (min-width: 600px) {
             .content {
-                margin-left: 240px;
+                margin-left: 250px;
                 width: 80%;
                 padding: 40px;
             }
@@ -75,6 +75,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 width: 90%;
                 padding: 40px;
             }
+        }
+        
+        .content{
+            text-align: left;
         }
 
         .form-group {
@@ -142,15 +146,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="form-group">
                 <label for="PhanLop">Khu vực:</label>
                 <select id="PhanLop" name="PhanLop">
-                    <option value="0">Đông Anh</option>
-                    <option value="1">Cầu Giấy</option>
-                    <option value="2">Nguyễn Tất Thành</option>
+                    <option value="1">Nguyễn Tất Thành</option>
+                    <option value="2">An Bình</option>
                 </select>
             </div>
 
 
-            <button type="submit" class="submit-btn">Thêm lớp</button>
-            <a href="../class/class_list.php" class="cancel-btn">Hủy</a>
+            <div style="text-align: center">
+                <button type="submit" class="submit-btn">Thêm lớp</button>
+                <a href="../class/class_list.php" class="cancel-btn">Hủy</a>
+            </div>
         </form>
     </div>
 </body>

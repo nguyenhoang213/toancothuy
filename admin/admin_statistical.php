@@ -55,7 +55,7 @@ $conn->query($update);
 
 <body>
     <div class="content">
-        <h1>THỐNG KÊ LỚP <?php echo $class_info['TenLop']; ?> </h1>
+        <h1>THỐNG KÊ <?php echo $class_info['TenLop']; ?> </h1>
         
         <!-- Statistics Display -->
         <div class="count">

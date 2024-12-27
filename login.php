@@ -84,7 +84,7 @@ if (isset($_POST['login-button']) || isset($_POST['uname']) || isset($_POST['psw
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/assets/image/logo.png">
+    <link rel="icon" type="image/x-icon" href="./assets/image/logoTH.jpg">
     <title>Đăng Nhập</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/login_style.css">
@@ -145,8 +145,8 @@ if (isset($_POST['login-button']) || isset($_POST['uname']) || isset($_POST['psw
             </form>
         </div>
         <?php
-    include('footer.php')
-        ?>
+        include('footer.php')
+            ?>
 </body>
 <script>
     function toggleMenu() {

@@ -290,7 +290,7 @@ $lesson_info = $conn->query("SELECT * FROM buoihoc WHERE MaBuoiHoc = '$maBH'")->
                         .then(response => response.json())
                         .then(data => {
                             if (data.success) {
-                                alert("Đã lưu điểm thành công!");
+                                // alert("Đã lưu điểm thành công!");
                                 row.remove(); // Xóa hàng sau khi lưu thành công
                                 updateScoreInputs(); // Cập nhật danh sách ô nhập điểm
                             } else {

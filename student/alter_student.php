@@ -60,8 +60,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Xử lý upload ảnh nếu có
     if (!empty($anh)) {
       $target_dir = "../assets/image/anhhs/";
-      $target_file = $target_dir . basename($anh);
 
+      // Lấy phần mở rộng của file ảnh
+      $file_extension = pathinfo($anh, PATHINFO_EXTENSION);
+
+      // Đặt tên file mới theo mã học sinh
+      $new_file_name = $maHS . '.' . $file_extension;
+      $target_file = $target_dir . $new_file_name;
+
+      // Kiểm tra và xóa ảnh cũ nếu có
       if (!empty($student['Anh'])) { // Kiểm tra ảnh cũ trong cơ sở dữ liệu
         $old_file = $target_dir . $student['Anh']; // Đường dẫn ảnh cũ
         if (file_exists($old_file)) { // Kiểm tra file có tồn tại
@@ -69,7 +76,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
       }
 
-      move_uploaded_file($_FILES['Anh']['tmp_name'], $target_file);
+      // Di chuyển file mới vào thư mục đích
+      if (move_uploaded_file($_FILES['Anh']['tmp_name'], $target_file)) {
+        $anh = $new_file_name; // Cập nhật lại tên file để lưu vào CSDL
+      } else {
+        echo '<script>alert("Lỗi khi tải lên ảnh!");</script>';
+        $anh = $student['Anh']; // Giữ nguyên ảnh cũ nếu upload thất bại
+      }
     } else {
       $anh = $student['Anh']; // Giữ nguyên ảnh cũ nếu không cập nhật
     }
@@ -104,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <style>
     @media screen and (min-width: 600px) {
       .content {
-        margin-left: 240px;
+        margin-left: 250px;
         width: 80%;
         padding: 40px;
       }
@@ -116,6 +129,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         width: 90%;
         padding: 40px;
       }
+    }
+    
+    .content{
+        text-align: left;
     }
 
     .form-group {
@@ -172,7 +189,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <!-- Họ -->
       <div class="form-group">
         <label for="Ho">Họ:</label>
-        <input type="text" id="Ho" name="Ho" value="<?php echo htmlspecialchars($student['Ho']); ?>" required>
+        <input type="text" id="Ho" name="Ho" value="<?php echo htmlspecialchars($student['Ho']); ?>">
       </div>
 
       <!-- Tên -->
@@ -216,8 +233,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       </div>
 
       <!-- Nút Cập Nhật -->
-      <button type="submit" class="submit-btn">Cập nhật học sinh</button>
-      <a href="../student/student_list.php?id=<?php echo $maLop ?>" class=" cancel-btn">Hủy</a>
+      <div style="text-align: center">
+          <button type="submit" class="submit-btn">Cập nhật học sinh</button>
+          <a href="../student/student_list.php?id=<?php echo $maLop ?>" class=" cancel-btn">Hủy</a>
+      </div>
     </form>
   </div>
 </body>

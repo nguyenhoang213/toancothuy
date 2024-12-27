@@ -156,6 +156,21 @@ if ($sort == 0) {
             display: flex;
             justify-content: center;
         }
+
+        .export-button {
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            float: right;
+        }
+
+        .export-button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 
@@ -331,7 +346,7 @@ if ($sort == 0) {
         <!-- Start: Student-list -->
 
         <h1 class="tittle">DANH SÁCH HỌC SINH</h1>
-        <button id="exportExcel" style="font-size: 20px;float:right">Xuất</button>
+        <button id="exportExcel" class="export-button">Xuất Excel</button>
         <table class="student-list" data-excel-name="Bảng điểm" style="width: 100%">
             <tr>
                 <td>SĐT</td>
@@ -378,8 +393,6 @@ if ($sort == 0) {
                 } else {
                     echo '<td class="rank-cell">Không</td>';
                 }
-
-
                 echo '</tr>';
             }
             ?>
@@ -397,7 +410,7 @@ if ($sort == 0) {
                         const maBuoiHoc = "<?php echo $maBH; ?>"; // Lấy MaBuoiHoc từ PHP
 
                         // AJAX request
-                        fetch("/score/alter_score.php", {
+                        fetch("../score/alter_score.php", {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json"

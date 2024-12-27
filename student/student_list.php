@@ -11,8 +11,19 @@ if (!$_SESSION['uname'])
 
 include("../side_nav.php"); // Thanh điều hướng
 
+
 // Lấy ID lớp từ URL
 $maLop = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
+
+// Update student status based on attendance
+$update = "UPDATE phanlop SET TinhTrang='0' 
+WHERE MaPhanLop NOT IN (SELECT DISTINCT MaPhanLop FROM diemso ds JOIN buoihoc bh ON ds.MaBuoiHoc = bh.MaBuoiHoc WHERE Ngay > DATE_SUB(CURDATE(), INTERVAL 21 DAY)) AND MaLop = '$maLop'";
+$conn->query($update);
+
+$update = "UPDATE phanlop SET TinhTrang='1' 
+WHERE MaPhanLop IN (SELECT DISTINCT MaPhanLop FROM diemso ds JOIN buoihoc bh ON ds.MaBuoiHoc = bh.MaBuoiHoc WHERE Ngay > DATE_SUB(CURDATE(), INTERVAL 21 DAY)) AND MaLop = '$maLop'";
+$conn->query($update);
 
 // Kiểm tra xem ID lớp có hợp lệ không
 if ($maLop <= 0) {

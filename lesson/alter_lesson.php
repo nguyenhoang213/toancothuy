@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <style>
         @media screen and (min-width: 600px) {
             .content {
-                margin-left: 240px;
+                margin-left: 250px;
                 width: 80%;
                 padding: 40px;
             }
@@ -92,8 +92,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             .content {
                 margin-left: 15px;
                 width: 90%;
-                padding: 40px;  
+                padding: 40px;
             }
+        }
+
+        .content {
+            text-align: left;
         }
 
         .form-group {
@@ -153,8 +157,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <div class="form-group">
                 <label for="TenBai">Tên Bài:</label>
-                <input type="text" id="TenBai" name="TenBai" value="<?php echo htmlspecialchars($lesson['TenBai']); ?>"
-                    required>
+                <input type="text" id="TenBai" name="TenBai" value="<?php echo htmlspecialchars($lesson['TenBai']); ?>">
             </div>
 
             <div class="form-group">
@@ -162,8 +165,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="text" id="DapAn" name="DapAn" value="<?php echo htmlspecialchars($lesson['DapAn']); ?>">
             </div>
 
-            <button type="submit" class="submit-btn">Cập nhật buổi học</button>
-            <a href="../lesson/lesson_list.php?id=<?php echo $maLop ?>" class="cancel-btn">Hủy</a>
+            <div style="text-align: center">
+                <button type="submit" class="submit-btn">Cập nhật buổi học</button>
+                <a href="../lesson/lesson_list.php?id=<?php echo $maLop ?>" class="cancel-btn">Hủy</a>
+            </div>
         </form>
     </div>
 </body>

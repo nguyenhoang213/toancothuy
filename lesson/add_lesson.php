@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <style>
         @media screen and (min-width: 600px) {
             .content {
-                margin-left: 240px;
+                margin-left: 250px;
                 width: 80%;
                 padding: 40px;
             }
@@ -74,6 +74,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 width: 90%;
                 padding: 40px;
             }
+        }
+
+        .content {
+            text-align: left;
         }
 
         .form-group {
@@ -131,14 +135,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="date" id="Ngay" name="Ngay" required>
 
                 <label for="TenBai">Tên Bài:</label>
-                <input type="text" id="TenBai" name="TenBai" required>
+                <input type="text" id="TenBai" name="TenBai">
 
                 <label for="DapAn">Đáp Án (link):</label>
                 <textarea id="DapAn" name="DapAn" rows="4"></textarea>
             </div>
 
-            <button type="submit" class="submit-btn">Thêm buổi học</button>
-            <a href="../lesson/lesson_list.php?id=<?php echo $maLop ?>" class="cancel-btn">Hủy</a>
+            <div style="text-align: center">
+                <button type="submit" class="submit-btn">Thêm buổi học</button>
+                <a href="../lesson/lesson_list.php?id=<?php echo $maLop ?>" class="cancel-btn">Hủy</a>
+            </div>
         </form>
     </div>
 </body>

@@ -17,6 +17,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tinhTrang = $_POST['TinhTrang'];
     $phanlop = $_POST['PhanLop'];
     $ngaytao = $Date = date("Y-m-d");
+    $tinhphi = $_POST['TinhPhi'];
+    $hocphi = str_replace('.', '', $_POST['HocPhi']);
+    if ($tinhphi == 0) {
+        $hocphi = 0;
+    }
+
     // Kiểm tra xem các trường có rỗng không
     if (empty($tenLop)) {
         echo '<script>alert("Tên lớp không được để trống!");</script>';
@@ -33,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </script>';
         } else {
             // Nếu tên lớp không trùng, thêm lớp mới
-            $sql = "INSERT INTO lop (TenLop, TinhTrang, NgayTao, PhanLop) VALUES ('$tenLop', '$tinhTrang','$ngaytao','$phanlop')";
+            $sql = "INSERT INTO lop (TenLop, TinhTrang, NgayTao, PhanLop, TinhPhi, HocPhi) VALUES ('$tenLop', '$tinhTrang','$ngaytao','$phanlop','$tinhphi','$hocphi')";
             if ($conn->query($sql) === TRUE) {
                 echo '<script> 
                 alert("Thêm lớp thành công!");
@@ -76,8 +82,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 padding: 40px;
             }
         }
-        
-        .content{
+
+        .content {
             text-align: left;
         }
 
@@ -151,6 +157,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </select>
             </div>
 
+            <div class="form-group">
+                <label for="TinhPhi">Thu học phí:</label>
+                <select id="TinhPhi" name="TinhPhi" onchange="toggleInputField()">
+                    <option value="0">Không </option>
+                    <option value="1">Có </option>
+                </select>
+            </div>
+
+            <div class="form-group" id="extraInputField" style='display: none;'>
+                <label for="HocPhi">Học phí 1 buổi:</label>
+                <input type="text" id="HocPhi" name="HocPhi">
+            </div>
 
             <div style="text-align: center">
                 <button type="submit" class="submit-btn">Thêm lớp</button>
@@ -161,3 +179,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </body>
 
 </html>
+
+<script>
+    function toggleInputField() {
+        const selectField = document.getElementById('TinhPhi');
+        const extraInputField = document.getElementById('extraInputField');
+
+        if (selectField.value === "1") {
+            extraInputField.style.display = "block"; // Hiển thị input nếu chọn "Có"
+        } else {
+            extraInputField.style.display = "none"; // Ẩn input nếu chọn "Không"
+        }
+    }
+
+    document.getElementById('HocPhi').addEventListener('input', function (e) {
+        let value = e.target.value.replace(/\D/g, ''); // Loại bỏ ký tự không phải số
+        value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.'); // Thêm dấu . vào nhóm 3 chữ số
+        e.target.value = value;
+    });
+
+</script>

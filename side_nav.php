@@ -76,6 +76,40 @@
     </div>
 
     <button class="dropdown-btn">
+        <div class="dropItem"> <i class="fa-solid fa-clipboard-user"></i> Điểm danh </div>
+        <i class="nav-arrow-down ti-angle-down"></i>
+    </button>
+    <div class="dropdown-container">
+        <form method="GET" action="../rollcall/lesson_list.php">
+            <?php
+            $sql = "SELECT * FROM lop WHERE TinhTrang = 1 ORDER BY TenLop DESC";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo '<button type="submit" name="id" value="' . $row["MaLop"] . '"> ' . $row["TenLop"] . ' </button>';
+                }
+            } ?>
+        </form>
+    </div>
+
+    <button class="dropdown-btn">
+        <div class="dropItem"> <i class="fa-solid fa-money-bill"></i> Tính học phí </div>
+        <i class="nav-arrow-down ti-angle-down"></i>
+    </button>
+    <div class="dropdown-container">
+        <form method="GET" action="../fee/fee.php">
+            <?php
+            $sql = "SELECT * FROM lop WHERE TinhTrang = 1 ORDER BY TenLop DESC";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo '<button type="submit" name="id" value="' . $row["MaLop"] . '"> ' . $row["TenLop"] . ' </button>';
+                }
+            } ?>
+        </form>
+    </div>
+
+    <button class="dropdown-btn">
         <div class="dropItem"><i class="fa-solid fa-user"></i> Quản lý học sinh </div>
         <i class="nav-arrow-down ti-angle-down"></i>
     </button>

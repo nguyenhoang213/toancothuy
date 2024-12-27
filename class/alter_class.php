@@ -40,6 +40,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tenLop = $_POST['TenLop'];
     $tinhTrang = $_POST['TinhTrang'];
     $phanlop = $_POST['PhanLop'];
+    $tinhphi = $_POST['TinhPhi'];
+    $hocphi = str_replace('.', '', $_POST['HocPhi']);
+    if ($tinhphi == 0) {
+        $hocphi = 0;
+    }
 
     if (empty($tenLop)) {
         echo '<script>alert("Tên lớp không được để trống!");</script>';
@@ -55,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </script>';
         } else {
             // Cập nhật thông tin lớp trong cơ sở dữ liệu
-            $sql = "UPDATE lop SET TenLop = '$tenLop', TinhTrang = '$tinhTrang', PhanLop = '$phanlop' WHERE MaLop = '$maLop'";
+            $sql = "UPDATE lop SET TenLop = '$tenLop', TinhTrang = '$tinhTrang', PhanLop = '$phanlop', TinhPhi = '$tinhphi', HocPhi = '$hocphi' WHERE MaLop = '$maLop'";
             if ($conn->query($sql) === TRUE) {
                 echo '<script>
                 alert("Cập nhật lớp thành công!");
@@ -99,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
 
-        .content{
+        .content {
             text-align: left;
         }
 
@@ -171,11 +176,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="form-group">
                 <label for="PhanLop">Khu vực:</label>
                 <select id="PhanLop" name="PhanLop">
-                    <option value="1" <?php echo $class['PhanLop'] == 2 ? 'selected' : ''; ?>>Nguyễn Tất Thành
+                    <option value="1" <?php echo $class['PhanLop'] == 1 ? 'selected' : ''; ?>>Nguyễn Tất Thành
                     </option>
                     <option value="2" <?php echo $class['PhanLop'] == 2 ? 'selected' : ''; ?>>An Bình
                     </option>
                 </select>
+            </div>
+
+            <div class="form-group">
+                <label for="TinhPhi">Thu học phí:</label>
+                <select id="TinhPhi" name="TinhPhi" onchange="toggleInputField()">
+                    <option value="0" <?php echo $class['TinhPhi'] == 0 ? 'selected' : ''; ?>>Không
+                    </option>
+                    <option value="1" <?php echo $class['TinhPhi'] == 1 ? 'selected' : ''; ?>>Có
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group" id="extraInputField" <?php echo $class['TinhPhi'] == 0 ? "style='display: none;'" : "" ?>>
+                <label for="HocPhi">Học phí 1 buổi:</label>
+                <input type="text" id="HocPhi" name="HocPhi"
+                    value="<?php echo number_format($class['HocPhi'], 0, ',', '.'); ?>">
             </div>
 
             <!-- Nút Cập Nhật -->
@@ -188,3 +209,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </body>
 
 </html>
+
+<script>
+    function toggleInputField() {
+        const selectField = document.getElementById('TinhPhi');
+        const extraInputField = document.getElementById('extraInputField');
+
+        if (selectField.value === "1") {
+            extraInputField.style.display = "block"; // Hiển thị input nếu chọn "Có"
+        } else {
+            extraInputField.style.display = "none"; // Ẩn input nếu chọn "Không"
+        }
+    }
+
+    document.getElementById('HocPhi').addEventListener('input', function (e) {
+        let value = e.target.value.replace(/\D/g, ''); // Loại bỏ ký tự không phải số
+        value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.'); // Thêm dấu . vào nhóm 3 chữ số
+        e.target.value = value;
+    });
+</script>

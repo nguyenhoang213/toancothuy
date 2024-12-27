@@ -136,7 +136,8 @@ $result = $conn->query($sql);
 
             <select name="phanlop" style="padding: 8px; width: 250px; font-size: 16px">
                 <option value="" <?php echo $phanlop === '' ? 'selected' : ''; ?>>Tất cả khu vực</option>
-                <option value="2" <?php echo $phanlop === '2' ? 'selected' : ''; ?>>Nguyễn Tất Thành</option>
+                <option value="1" <?php echo $phanlop === '1' ? 'selected' : ''; ?>>Nguyễn Tất Thành</option>
+                <option value="2" <?php echo $phanlop === '2' ? 'selected' : ''; ?>>An Bình</option>
             </select>
 
             <select name="tinhtrang" style="padding: 8px; width: 250px; font-size: 16px">
@@ -155,6 +156,7 @@ $result = $conn->query($sql);
                 <th>Tên Lớp</th>
                 <th>Ngày Tạo</th>
                 <th>Khu vực</th>
+                <th>Học phí</th>
                 <th>Tình Trạng</th>
                 <th>Chỉnh sửa</th>
                 <th>Xóa</th>
@@ -185,13 +187,18 @@ $result = $conn->query($sql);
                         echo '<td> Không xác định </td>';
                     }
 
+                    if ($row['TinhPhi'] == 1) {
+                        echo '<td>' . number_format($row['HocPhi'], 0, ',', '.') . ' VNĐ</td>';
+                    } else {
+                        echo '<td>Không</td>';
+                    }
+
                     // Kiểm tra tình trạng của lớp (0: Đã dừng, 1: Đang hoạt động)
                     if ($row['TinhTrang'] == 0) {
                         echo '<td>Đã nghỉ</td>';
                     } else {
                         echo '<td>Đang học</td>';
                     }
-
 
                     // Tùy chọn chỉnh sửa lớp
                     echo "<td><a href='../class/alter_class.php?MaLop=" . $row['MaLop'] . "'>Chỉnh sửa</a></td>";
@@ -219,7 +226,7 @@ $result = $conn->query($sql);
         function confirmDelete() {
             return confirm("Bạn có chắc chắn muốn xóa lớp này?");
         }
-        
+
         function cantDelete() {
             alert("Bạn không đủ quyền thực hiện chức năng này!");
         }
